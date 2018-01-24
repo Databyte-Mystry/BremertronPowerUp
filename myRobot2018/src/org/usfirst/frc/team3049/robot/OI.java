@@ -34,7 +34,7 @@ public class OI {
 	JoystickButton buttonBack = new JoystickButton(joy, 7); //
 	JoystickButton buttonStart = new JoystickButton(joy, 8);
 	public static int axisLX = 0; // 
-	public static int axisLY = 1; // Drive, fwd/back
+	public static int axisLY = 1; // Drive, fwd/back asdf
 	public static int axisLT = 2; // 
 	public static int axisRT = 3; // 
 	public static int axisRX = 4; // Drive, turning
