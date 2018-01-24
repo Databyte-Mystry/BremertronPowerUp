@@ -18,11 +18,11 @@ public class Elevator extends Subsystem {
     }
     
     public void lower(double speed){
-    	m_elevatorMotor.set(speed);
+    	m_elevatorMotor.set(-speed);
     }
     
     public void stop(){
-    	m_elevatorMotor.set(0);
+    	m_elevatorMotor.stopMotor();
     }
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
