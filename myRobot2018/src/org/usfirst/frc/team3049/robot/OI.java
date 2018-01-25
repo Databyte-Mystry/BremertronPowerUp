@@ -9,11 +9,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.buttons.Button;
 
 import org.usfirst.frc.team3049.robot.Robot;
-
+import org.usfirst.frc.team3049.robot.commands.ActivateClimber;
 import org.usfirst.frc.team3049.robot.commands.AutoTestCase;
 import org.usfirst.frc.team3049.robot.commands.DriveStraight;
-import org.usfirst.frc.team3049.robot.commands.ExampleSolenoid;
+import org.usfirst.frc.team3049.robot.commands.GiveToExchange;
 import org.usfirst.frc.team3049.robot.commands.GripperControl;
+import org.usfirst.frc.team3049.robot.commands.ManualElevatorControl;
+import org.usfirst.frc.team3049.robot.commands.SetElevatorHeight;
 import org.usfirst.frc.team3049.robot.commands.TurnRight;
 import org.usfirst.frc.team3049.robot.commands.TurnLeft;
 
@@ -45,19 +47,19 @@ public class OI {
 	
 	// Custom Rig Button Mapping
 	
-	JoystickButton gripButton = new JoystickButton(custom, 0);//
-	JoystickButton releaseButton = new JoystickButton(custom, 1);//
-	JoystickButton exchangeButton = new JoystickButton(custom, 2);//
-	JoystickButton scaleHButton = new JoystickButton(custom, 3);//
-	JoystickButton switchHButton = new JoystickButton(custom, 4);//
-	JoystickButton portalHButton = new JoystickButton(custom, 5);//
-	JoystickButton exchangeHButton = new JoystickButton(custom, 6);//
-	JoystickButton groundHButton = new JoystickButton(custom, 7);//
-	JoystickButton climbHButton = new JoystickButton(custom, 8);//
-	JoystickButton climbMotorFwdButton = new JoystickButton(custom, 9);//
-	JoystickButton climbMotorRevButton = new JoystickButton(custom, 10);//
-	JoystickButton liftUpButton = new JoystickButton(custom, 11);//
-	JoystickButton liftDownButton = new JoystickButton(custom, 12);//
+	JoystickButton buttonGrip = new JoystickButton(custom, 2);//
+	JoystickButton buttonRelease = new JoystickButton(custom, 4);//
+	JoystickButton buttonExchange = new JoystickButton(custom, 3);//
+	JoystickButton buttonScaleH = new JoystickButton(custom, 17);//
+	JoystickButton buttonSwitchH = new JoystickButton(custom, 19);//
+	JoystickButton buttonPortalH = new JoystickButton(custom, 18);//
+	JoystickButton buttonExchangeH = new JoystickButton(custom, 16);//
+	JoystickButton buttonGroundH = new JoystickButton(custom, 15);//
+	JoystickButton buttonClimbH = new JoystickButton(custom, 8);//
+	JoystickButton buttonClimbMotorFwd = new JoystickButton(custom, 10);//
+	JoystickButton buttonClimbMotorRev = new JoystickButton(custom, 12);//
+	JoystickButton buttonLiftUp = new JoystickButton(custom, 14);//
+	JoystickButton buttonLiftDown = new JoystickButton(custom, 11);//
 	
 	//// TRIGGERING COMMANDS WITH BUTTONS
 	// Once you have a button, it's trivial to bind it to a button in one of
@@ -81,11 +83,21 @@ public class OI {
 		buttonB.whenPressed(new TurnRight(3.0, 0.5));
 		buttonX.whenPressed(new TurnLeft(3.0, 0.5));
 		buttonY.whenPressed(new DriveStraight(3.0, 0.5));
-		buttonLSh.whenPressed(new ExampleSolenoid());
 		
 		//Custom Rig Button Command Assignment
-		gripButton.whenPressed(new GripperControl(true)); // true declares that the Gripper will close
-		
+		buttonGrip.whenPressed(new GripperControl(true)); // true declares that the Gripper will close
+		buttonRelease.whenPressed(new GripperControl(false)); // false declares that Gripper will open
+		buttonExchange.whenPressed(new GiveToExchange()); //No input but Must already be on level with Exchange
+		buttonScaleH.whenPressed(new SetElevatorHeight(4)); // 4 declares that elevator will go to Scale height
+		buttonSwitchH.whenPressed(new SetElevatorHeight(3));// 3 declares that elevator will go to Switch height
+		buttonPortalH.whenPressed(new SetElevatorHeight(2));// 2 declares that elevator will go to Portal height
+		buttonExchangeH.whenPressed(new SetElevatorHeight(1));// 1 declares that elevator will go to Exchange height
+		buttonGroundH.whenPressed(new SetElevatorHeight(0));// 0 declares that elevator will go to Ground height
+		buttonClimbH.whenPressed(new SetElevatorHeight(5));// 5 declares that elevator will go to Climb height
+		buttonClimbMotorFwd.whileHeld(new ActivateClimber(true)); // true declares that the Robot will climb up
+		buttonClimbMotorRev.whileHeld(new ActivateClimber(false)); //false declares that the Robot will climb down
+		buttonLiftUp.whileHeld(new ManualElevatorControl(true)); // true declares that the elevator will raise
+		buttonLiftDown.whileHeld(new ManualElevatorControl(false)); // false declares that the elevator will lower
 		
 	}
 

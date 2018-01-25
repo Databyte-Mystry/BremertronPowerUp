@@ -21,6 +21,7 @@ import org.usfirst.frc.team3049.robot.commands.RightPos2;
 import org.usfirst.frc.team3049.robot.commands.RightPos3;
 //import org.usfirst.frc.team3049.robot.commands.AutoTestCase;
 import org.usfirst.frc.team3049.robot.commands.GyroTurnRight;
+import org.usfirst.frc.team3049.robot.subsystems.Arduino;
 import org.usfirst.frc.team3049.robot.subsystems.Climber;
 import org.usfirst.frc.team3049.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3049.robot.subsystems.Elevator;
@@ -41,6 +42,7 @@ public class Robot extends IterativeRobot {
 	public static Elevator elevator;
 	public static Pneumatics pneumatics;
 	public static Climber climber;
+	public static Arduino arduino;
 	
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -58,6 +60,7 @@ public class Robot extends IterativeRobot {
 		elevator = new Elevator();
 		pneumatics = new Pneumatics();
 		climber = new Climber();
+		arduino = new Arduino();
 		oi = new OI();
 		position = 1;
 //		position =  DriverStation.getLocation(); 

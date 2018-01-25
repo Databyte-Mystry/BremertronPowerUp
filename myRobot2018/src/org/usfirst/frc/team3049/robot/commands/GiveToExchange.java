@@ -13,7 +13,7 @@ public class GiveToExchange extends Command {
 	private static Pneumatics m_pneumatics;
 	private static boolean m_finished = false;
 	
-    public GiveToExchange() {
+    public GiveToExchange() { //Must already be on level with Exchange
         requires(Robot.pneumatics);
         m_pneumatics  = Robot.pneumatics;
     }
