@@ -23,6 +23,7 @@ public class RobotMap {
 	// Pneumatic Solenoids     Port Assignments can overlap with Motor Port assignments
 	public static int Gripper_Solenoid = 0;
 	public static int Pusher_Solenoid = 1;
+	public static int Brake_Solenoid = 2;
 	
 	//Analog Inputs
 	public static int String_Potentiometer = 0;
