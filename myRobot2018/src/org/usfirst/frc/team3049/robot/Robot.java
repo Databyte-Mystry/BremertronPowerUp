@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3049.robot;
  
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -12,6 +13,7 @@ import edu.wpi.first.wpilibj.I2C.Port;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CameraServer;
 
+import org.usfirst.frc.team3049.robot.commands.GripperControl;
 import org.usfirst.frc.team3049.robot.commands.GyroTurnLeft;
 import org.usfirst.frc.team3049.robot.commands.LeftPos1;
 import org.usfirst.frc.team3049.robot.commands.LeftPos2;
@@ -45,6 +47,8 @@ public class Robot extends IterativeRobot {
 	public static Arduino arduino;
 	
 	Command autonomousCommand;
+	Command gripperCommand;
+	boolean gripState = false;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	private static int position;
 
@@ -157,9 +161,13 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 //		GetDistance distance = new GetDistance();
 //		distance.start();
-		
+//		gripperCommand = new GripperControl(false);
 		Scheduler.getInstance().run();
 		log();
+//		Timer.delay(1);
+//		System.out.println("Delayed");
+		//new GripperControl(true);
+		//Timer.delay(1);
 	/*
 		while (isOperatorControl() && isEnabled()) {
 			Scheduler.getInstance().run();
@@ -187,6 +195,8 @@ public class Robot extends IterativeRobot {
 	private void log(){
 		SmartDashboard.putNumber("Position", position);
 		SmartDashboard.putNumber("Gyro Angle:", gyro.getAngle());
+		SmartDashboard.putNumber("Distance:", arduino.getDistance());
+		SmartDashboard.putNumber("Lift height", Elevator.strPot.get());
 	}
 
 

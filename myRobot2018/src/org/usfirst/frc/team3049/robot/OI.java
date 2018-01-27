@@ -15,6 +15,7 @@ import org.usfirst.frc.team3049.robot.commands.DriveStraight;
 import org.usfirst.frc.team3049.robot.commands.GiveToExchange;
 import org.usfirst.frc.team3049.robot.commands.GripperControl;
 import org.usfirst.frc.team3049.robot.commands.ManualElevatorControl;
+import org.usfirst.frc.team3049.robot.commands.Print;
 import org.usfirst.frc.team3049.robot.commands.SetElevatorHeight;
 import org.usfirst.frc.team3049.robot.commands.TurnRight;
 import org.usfirst.frc.team3049.robot.commands.TurnLeft;
@@ -79,14 +80,14 @@ public class OI {
 
 	public OI() {
 		//Xbox Button Command Assignment
-		buttonA.whenPressed(new AutoTestCase());
+		buttonX.whenPressed(new Print("Thank God The Controller Works"));
 		buttonB.whenPressed(new TurnRight(3.0, 0.5));
-		buttonX.whenPressed(new TurnLeft(3.0, 0.5));
-		buttonY.whenPressed(new DriveStraight(3.0, 0.5));
+		buttonX.whenPressed(new GripperControl(1));
+		buttonY.whenPressed(new GripperControl(2));
 		
 		//Custom Rig Button Command Assignment
-		buttonGrip.whenPressed(new GripperControl(true)); // true declares that the Gripper will close
-		buttonRelease.whenPressed(new GripperControl(false)); // false declares that Gripper will open
+		buttonGrip.whenPressed(new GripperControl(1)); // true declares that the Gripper will close
+		buttonRelease.whenPressed(new GripperControl(2)); // false declares that Gripper will open
 		buttonExchange.whenPressed(new GiveToExchange()); //No input but Must already be on level with Exchange
 		buttonScaleH.whenPressed(new SetElevatorHeight(4)); // 4 declares that elevator will go to Scale height
 		buttonSwitchH.whenPressed(new SetElevatorHeight(3));// 3 declares that elevator will go to Switch height
@@ -98,7 +99,7 @@ public class OI {
 		buttonClimbMotorRev.whileHeld(new ActivateClimber(false)); //false declares that the Robot will climb down
 		buttonLiftUp.whileHeld(new ManualElevatorControl(true)); // true declares that the elevator will raise
 		buttonLiftDown.whileHeld(new ManualElevatorControl(false)); // false declares that the elevator will lower
-		
+		//buttonGrip.whileHeld(new Print("Thank God The New Controller Works"));
 	}
 
 	public Joystick getJoystick() {

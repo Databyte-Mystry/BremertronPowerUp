@@ -9,14 +9,15 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class GripperControl extends Command {
-	private static boolean m_input;
+	private int m_input = 0;
 	private static Pneumatics m_pneumatics;
 	private static boolean m_finished = false;
 	
-    public GripperControl(boolean input) { // input should be true to close gripper
+    public GripperControl(int input) { // input should be true to close gripper
        requires(Robot.pneumatics);
        m_pneumatics = Robot.pneumatics;
        m_input = input;
+       System.out.println(m_input);
     }
 
     // Called just before this Command runs the first time
@@ -25,14 +26,16 @@ public class GripperControl extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	 if (m_input == true) { // true tells gripper to close
+    	 if (m_input == 1) { // true tells gripper to close
          	m_pneumatics.grip();
-         } else if (m_input == false){
+         	System.out.println("Grip!");
+         	m_finished = true;
+         } else if (m_input == 2){
          	m_pneumatics.release();
-         } else {
-        	 System.out.println("Error : GripperControl.java :Input Valid Boolean");
+         	System.out.println("Release!");
+         	m_finished = true;
          }
-    	 m_finished = true;
+    	 
     }
 
     // Make this return true when this Command no longer needs to run execute()

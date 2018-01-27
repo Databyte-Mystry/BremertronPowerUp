@@ -35,7 +35,7 @@ public class Drivetrain extends Subsystem {
 	public void drive(double x, double r) { // x is fwd/rev. r is rotation. both should, inclusive, be within 0 and 1
 //		x = deadzone(x);
 //		r = deadzone(r);
-		System.out.println("Speed:" + x); //prints expected fwds/rev speed of robot to console
+//		System.out.println("Speed:" + x); //prints expected fwds/rev speed of robot to console
 		m_robotDrive.arcadeDrive(x, r);
 	}
 	
@@ -64,7 +64,7 @@ public class Drivetrain extends Subsystem {
 		double x = deadzone(joy.getRawAxis(OI.axisLY)); //
 		double r = deadzone(joy.getRawAxis(OI.axisRX));
 		//System.out.println(""+joy.getRawAxis(0)+""+joy.getRawAxis(1)+""+joy.getRawAxis(2)+""+joy.getRawAxis(3)+joy.getRawAxis(4));
-		System.out.println(" OI.axisLY:"+joy.getRawAxis(OI.axisLY)+" OI.axisRX:"+joy.getRawAxis(OI.axisRX));
+//		System.out.println(" OI.axisLY:"+joy.getRawAxis(OI.axisLY)+" OI.axisRX:"+joy.getRawAxis(OI.axisRX));
 		drive(x,r);
 //		drive(joy.getRawAxis(OI.axisLY), joy.getRawAxis(OI.axisRX));
 	}
