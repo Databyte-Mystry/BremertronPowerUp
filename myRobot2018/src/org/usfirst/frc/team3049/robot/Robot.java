@@ -192,11 +192,15 @@ public class Robot extends IterativeRobot {
 		 */
 	}
 	
+	/**
+	 *  Controls everything in the SmartDashboard
+	 */
 	private void log(){
-		SmartDashboard.putNumber("Position", position);
-		SmartDashboard.putNumber("Gyro Angle:", gyro.getAngle());
-		SmartDashboard.putNumber("Distance:", arduino.getDistance());
-		SmartDashboard.putNumber("Lift height", Elevator.strPot.get());
+		SmartDashboard.putNumber("Position", position);//????
+		SmartDashboard.putNumber("Gyro Angle:", gyro.getAngle());// Displays Gyro Angle
+		SmartDashboard.putNumber("Distance:", arduino.getDistance());// Displays distance in inches.
+		SmartDashboard.putNumber("Lift", Elevator.strPot.get());// Progress Bar for Lift
+		SmartDashboard.putString("Lift Height", Math.round((Elevator.strPot.get() * 100) / 100) + " In.");// Displays Height for Lift in Inches
 	}
 
 
