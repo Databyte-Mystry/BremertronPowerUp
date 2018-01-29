@@ -28,6 +28,12 @@ public class RobotMap {
 	//Analog Inputs
 	public static int String_Potentiometer = 0;
 	
+	//Digital Inputs
+	public static int EncoderL_ChanA = 0;
+	public static int EncoderL_ChanB = 1;
+	public static int EncoderR_ChanA = 2;
+	public static int EncoderR_ChanB = 3;
+	
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;

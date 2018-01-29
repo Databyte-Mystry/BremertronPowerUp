@@ -1,7 +1,7 @@
 package org.usfirst.frc.team3049.robot.commands;
 
 import org.usfirst.frc.team3049.robot.Robot;
-import org.usfirst.frc.team3049.robot.subsystems.Pneumatics;
+import org.usfirst.frc.team3049.robot.subsystems.Gripper;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class GiveToExchange extends Command {
-	private static Pneumatics m_pneumatics;
+	private static Gripper m_pneumatics;
 	private static boolean m_finished = false;
 	
     public GiveToExchange() { //Must already be on level with Exchange

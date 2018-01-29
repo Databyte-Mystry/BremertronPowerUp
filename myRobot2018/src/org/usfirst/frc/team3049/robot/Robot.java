@@ -27,7 +27,7 @@ import org.usfirst.frc.team3049.robot.subsystems.Arduino;
 import org.usfirst.frc.team3049.robot.subsystems.Climber;
 import org.usfirst.frc.team3049.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3049.robot.subsystems.Elevator;
-import org.usfirst.frc.team3049.robot.subsystems.Pneumatics;
+import org.usfirst.frc.team3049.robot.subsystems.Gripper;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -42,7 +42,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static ADXRS450_Gyro gyro;
 	public static Elevator elevator;
-	public static Pneumatics pneumatics;
+	public static Gripper pneumatics;
 	public static Climber climber;
 	public static Arduino arduino;
 	
@@ -62,7 +62,7 @@ public class Robot extends IterativeRobot {
 		driveTrain = new Drivetrain();
 		gyro = new ADXRS450_Gyro();
 		elevator = new Elevator();
-		pneumatics = new Pneumatics();
+		pneumatics = new Gripper();
 		climber = new Climber();
 		arduino = new Arduino();
 		oi = new OI();
@@ -200,7 +200,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Gyro Angle:", gyro.getAngle());// Displays Gyro Angle
 		SmartDashboard.putNumber("Distance:", arduino.getDistance());// Displays distance in inches.
 		SmartDashboard.putNumber("Lift", Elevator.strPot.get());// Progress Bar for Lift
-		SmartDashboard.putString("Lift Height", Math.round((Elevator.strPot.get() * 100) / 100) + " In.");// Displays Height for Lift in Inches
+		SmartDashboard.putString("Lift Height", String.format("%.4g%n", Elevator.strPot.get()) + " In.");// Displays Height for Lift in Inches
 	}
 
 

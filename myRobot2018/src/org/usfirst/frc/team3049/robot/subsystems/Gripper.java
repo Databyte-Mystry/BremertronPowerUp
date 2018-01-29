@@ -8,10 +8,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class Pneumatics extends Subsystem {
+public class Gripper extends Subsystem {
 	public Solenoid gripper = new Solenoid(RobotMap.Gripper_Solenoid);//default should be release
 	public Solenoid pusher = new Solenoid(RobotMap.Pusher_Solenoid);//default should be retracted
-	public Solenoid liftBrake = new Solenoid(RobotMap.Brake_Solenoid);//default should be braked
 	
     public void grip(){
     	gripper.set(true);
@@ -23,10 +22,6 @@ public class Pneumatics extends Subsystem {
     
     public void push(boolean pushOn){ 
     	pusher.set(pushOn);
-    }
-    public void brake(boolean state){ 
-    	liftBrake.set(!state);
-    	
     }
     
     public void initDefaultCommand() {
