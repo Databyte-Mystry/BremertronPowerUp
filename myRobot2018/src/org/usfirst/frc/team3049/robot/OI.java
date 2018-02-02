@@ -80,7 +80,7 @@ public class OI {
 
 	public OI() {
 		//Xbox Button Command Assignment
-		buttonX.whenPressed(new Print("Thank God The Controller Works"));
+		//buttonX.whenPressed(new Print("Thank God The Controller Works"));
 		buttonB.whenPressed(new TurnRight(3.0, 0.5));
 		buttonX.whenPressed(new GripperControl(1));
 		buttonY.whenPressed(new GripperControl(2));
