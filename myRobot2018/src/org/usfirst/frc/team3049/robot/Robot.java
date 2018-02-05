@@ -199,7 +199,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Position", position);//????
 		SmartDashboard.putNumber("Gyro Angle:", gyro.getAngle());// Displays Gyro Angle
 		SmartDashboard.putNumber("Distance:", arduino.getDistance());// Displays distance in inches.
-		SmartDashboard.putNumber("Lift", Elevator.strPot.get());// Progress Bar for Lift
+		SmartDashboard.putNumber("Lift", (Elevator.strPot.get() / 94) * 100);// Progress Bar for Lift
 		SmartDashboard.putString("Lift Height", String.format("%.4g%n", Elevator.strPot.get()) + " In.");// Displays Height for Lift in Inches
 	}
 
