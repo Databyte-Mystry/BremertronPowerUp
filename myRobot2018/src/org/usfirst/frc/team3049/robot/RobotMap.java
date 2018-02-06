@@ -13,17 +13,17 @@ public class RobotMap {
 	//Drive Train Motor Assignments      Port assignments CAN NOT overlap with the Other Motors Section
 	public static int FRONT_LEFT_MOTOR = 0; // 
 	public static int REAR_LEFT_MOTOR = 1; // 
-	public static int FRONT_RIGHT_MOTOR = 2; //
-	public static int REAR_RIGHT_MOTOR = 3; //
+	public static int FRONT_RIGHT_MOTOR = 5; //
+	public static int REAR_RIGHT_MOTOR = 4; //
 	
 	// Other Motors Assignments          Port assignments CAN NOT overlap with the Drive train Motors Section
-	public static int Elevator_Motor = 4;
-	public static int Climber_Motor = 5;
+	public static int Elevator_Motor = 3;
+	public static int Climber_Motor = 2;
 	
 	// Pneumatic Solenoids     Port Assignments can overlap with Motor Port assignments
-	public static int Gripper_Solenoid = 0;
+	public static int Gripper_Solenoid = 2;
 	public static int Pusher_Solenoid = 1;
-	public static int Brake_Solenoid = 2;
+	public static int Brake_Solenoid = 0;
 	
 	//Analog Inputs
 	public static int String_Potentiometer = 0;
