@@ -24,7 +24,7 @@ public class Drivetrain extends Subsystem {
 	private Talon m_rearRight = new Talon(RobotMap.REAR_RIGHT_MOTOR);
 	private SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight,m_rearRight);
 	
-	private double dz = 0.2; //change this to adjust the deadzone on the joysticks
+	private double dz = 0.1; //change this to adjust the deadzone on the joysticks
 	
 	public Drivetrain(){
 		super();
@@ -61,7 +61,7 @@ public class Drivetrain extends Subsystem {
 	
 	public void jdrive(Joystick joy) { // the method used to drive with a joystick
 		
-		double x = deadzone(joy.getRawAxis(OI.axisLY)); //
+		double x = deadzone(-joy.getRawAxis(OI.axisLY)); //
 		double r = deadzone(joy.getRawAxis(OI.axisRX));
 		//System.out.println(""+joy.getRawAxis(0)+""+joy.getRawAxis(1)+""+joy.getRawAxis(2)+""+joy.getRawAxis(3)+joy.getRawAxis(4));
 //		System.out.println(" OI.axisLY:"+joy.getRawAxis(OI.axisLY)+" OI.axisRX:"+joy.getRawAxis(OI.axisRX));
