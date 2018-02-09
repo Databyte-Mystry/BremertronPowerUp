@@ -51,9 +51,9 @@ public class OI {
 	JoystickButton buttonGrip = new JoystickButton(custom, 2);//
 	JoystickButton buttonRelease = new JoystickButton(custom, 4);//
 	JoystickButton buttonExchange = new JoystickButton(custom, 3);//
-	JoystickButton buttonScaleH = new JoystickButton(custom, 17);//
-	JoystickButton buttonSwitchH = new JoystickButton(custom, 19);//
-	JoystickButton buttonPortalH = new JoystickButton(custom, 18);//
+	JoystickButton buttonScaleH = new JoystickButton(custom, 5);//
+	JoystickButton buttonSwitchH = new JoystickButton(custom, 7);//
+	JoystickButton buttonPortalH = new JoystickButton(custom, 6);//
 	JoystickButton buttonExchangeH = new JoystickButton(custom, 16);//
 	JoystickButton buttonGroundH = new JoystickButton(custom, 15);//
 	JoystickButton buttonClimbH = new JoystickButton(custom, 8);//
