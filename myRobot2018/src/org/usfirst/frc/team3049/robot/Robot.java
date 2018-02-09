@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.I2C.Port;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CameraServer;
 
+import org.usfirst.frc.team3049.robot.subsystems.LidarSubsystem;
 import org.usfirst.frc.team3049.robot.commands.GripperControl;
 import org.usfirst.frc.team3049.robot.commands.GyroTurnLeft;
 import org.usfirst.frc.team3049.robot.commands.LeftPos1;
@@ -44,7 +45,7 @@ public class Robot extends IterativeRobot {
 	public static Elevator elevator;
 	public static Gripper pneumatics;
 	public static Climber climber;
-	public static Arduino arduino;
+	public static LidarSubsystem lidar;
 	
 	Command autonomousCommand;
 	Command gripperCommand;
@@ -64,7 +65,7 @@ public class Robot extends IterativeRobot {
 		elevator = new Elevator();
 		pneumatics = new Gripper();
 		climber = new Climber();
-		arduino = new Arduino();
+		lidar = new LidarSubsystem();
 		oi = new OI();
 		position = 1;
 //		position =  DriverStation.getLocation(); 
@@ -198,9 +199,9 @@ public class Robot extends IterativeRobot {
 	private void log(){
 		SmartDashboard.putNumber("Position", position);//????
 		SmartDashboard.putNumber("Gyro Angle:", gyro.getAngle());// Displays Gyro Angle
-		SmartDashboard.putNumber("Distance:", arduino.getDistance());// Displays distance in inches.
 		SmartDashboard.putNumber("Lift", (Elevator.strPot.get() / 94) * 100);// Progress Bar for Lift
 		SmartDashboard.putString("Lift Height", String.format("%.4g%n", Elevator.strPot.get()) + " In.");// Displays Height for Lift in Inches
+		SmartDashboard.putNumber("Distance", lidar.getDistance());// Displays distance in inches.
 	}
 
 
