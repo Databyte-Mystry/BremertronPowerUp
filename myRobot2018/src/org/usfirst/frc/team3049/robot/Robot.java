@@ -71,6 +71,7 @@ public class Robot extends IterativeRobot {
 //		autonomousCommand = new AutoTestCase();
 		gyro.calibrate();
 		CameraServer.getInstance().startAutomaticCapture();
+		driveTrain.stop();
 	}
 
 	/**
