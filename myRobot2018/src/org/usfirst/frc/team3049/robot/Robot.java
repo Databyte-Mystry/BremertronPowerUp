@@ -24,7 +24,6 @@ import org.usfirst.frc.team3049.robot.commands.RightPos2;
 import org.usfirst.frc.team3049.robot.commands.RightPos3;
 //import org.usfirst.frc.team3049.robot.commands.AutoTestCase;
 import org.usfirst.frc.team3049.robot.commands.GyroTurnRight;
-import org.usfirst.frc.team3049.robot.subsystems.Arduino;
 import org.usfirst.frc.team3049.robot.subsystems.Climber;
 import org.usfirst.frc.team3049.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3049.robot.subsystems.Elevator;
