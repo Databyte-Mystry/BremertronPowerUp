@@ -5,6 +5,7 @@ import org.usfirst.frc.team3049.robot.RobotMap;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -33,6 +34,7 @@ public class Elevator extends Subsystem {
     
     public void stop(){
     	m_elevatorMotor.stopMotor();
+    	Timer.delay(0.1);
     	liftBrake.set(true);
     }
     public void initDefaultCommand() {
