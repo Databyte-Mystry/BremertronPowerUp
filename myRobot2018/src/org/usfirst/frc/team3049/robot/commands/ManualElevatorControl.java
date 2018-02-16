@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ManualElevatorControl extends Command { // only run as a WhileHeld button type, otherwise it will run forever
 	private static Elevator m_elevator;
-	private static double m_speedUp = 1; //Adjust this to change rate of movement
-	private static double m_speedDown = 0.1;
+	private static double m_speedUp = 0.7; //Adjust this to change rate of movement
+	private static double m_speedDown = 0.01;
 	private boolean m_direction;
 	
     public ManualElevatorControl(boolean direction) {

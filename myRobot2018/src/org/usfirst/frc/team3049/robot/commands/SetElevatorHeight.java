@@ -13,7 +13,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class SetElevatorHeight extends Command {
 	private static double m_distance;
 	private int m_setting;
-	private static double m_speed = 0.3; //Change this number to change the rate of raising and lowering for set heights
+	private static double m_speedUp = 0.1;//Change this number to change the rate of raising for set heights
+	private static double m_speedDown = 0.1;//Change this number to change the rate of lowering for set heights
+
 	private static Elevator m_elevator;
 	
 	/**
@@ -46,9 +48,9 @@ public class SetElevatorHeight extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() { 
     	if(Elevator.strPot.get() > m_distance){
-    		m_elevator.lower(m_speed); 
+    		m_elevator.lower(m_speedDown); 
     	}else if (Elevator.strPot.get() < m_distance){
-    		m_elevator.raise(m_speed);
+    		m_elevator.raise(m_speedUp);
     	}
     }
 

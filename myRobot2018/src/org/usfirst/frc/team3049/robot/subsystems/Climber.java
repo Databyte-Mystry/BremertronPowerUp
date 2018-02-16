@@ -12,11 +12,11 @@ public class Climber extends Subsystem {
 	private static Spark m_climber = new Spark(RobotMap.Climber_Motor);
 	
 	public void ascend(double speed){
-		m_climber.set(speed);
+		m_climber.set(-speed);
 	}
 	
 	public void descend(double speed){
-		m_climber.set(-speed);
+		m_climber.set(speed);
 	}
 	
 	public void stop(){

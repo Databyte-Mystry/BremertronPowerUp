@@ -18,12 +18,12 @@ public class Elevator extends Subsystem {
 	private static Spark m_elevatorMotor = new Spark(RobotMap.Elevator_Motor);
 	
     public void raise(double speed){
-    	liftBrake.set(false);
+    	liftBrake.set(true);
     	m_elevatorMotor.set(speed);
     }
     
     public void lower(double speed){
-    	liftBrake.set(false);
+    	liftBrake.set(true);
     	m_elevatorMotor.set(-speed);
     }
     
@@ -35,7 +35,7 @@ public class Elevator extends Subsystem {
     public void stop(){
     	m_elevatorMotor.stopMotor();
     	Timer.delay(0.1);
-    	liftBrake.set(true);
+    	liftBrake.set(false);
     }
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
