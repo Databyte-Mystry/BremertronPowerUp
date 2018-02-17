@@ -12,17 +12,17 @@ public class AutoExchange extends CommandGroup {
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
-    	addSequential(new DriveStraight(3.0, 0.5));
-    	addSequential(new TurnLeft(3.0, 0.7));
-    	addSequential(new DriveStraight(3.0, 0.5));
-    	addSequential(new TurnLeft(3.0, 0.7));
-    	addSequential(new DriveStraight(3.0, 0.5));
+    	addSequential(new EncoderDriveStraight(3.0));
+    	addSequential(new GyroTurnLeft(90));
+    	addSequential(new EncoderDriveStraight(3.0));
+    	addSequential(new GyroTurnLeft(90));
+    	addSequential(new EncoderDriveStraight(3.0));
     	addSequential(new GiveToExchange());
-    	addSequential(new DriveStraight(-3.0, 0.5));
-    	addSequential(new TurnRight(3.0, 0.7));
-    	addSequential(new DriveStraight(3.0, 0.5));
-    	addSequential(new TurnRight(3.0, 0.7));
-    	addSequential(new DriveStraight(3.0, 0.5));
+    	addSequential(new EncoderDriveStraight(3.0));
+    	addSequential(new GyroTurnRight(90));
+    	addSequential(new EncoderDriveStraight(3.0));
+    	addSequential(new GyroTurnRight(90));
+    	addSequential(new EncoderDriveStraight(3.0));
 
         // To run multiple commands at the same time,
         // use addParallel()
