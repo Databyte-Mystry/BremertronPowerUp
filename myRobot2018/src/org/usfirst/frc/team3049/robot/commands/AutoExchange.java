@@ -5,16 +5,24 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class GripLift extends CommandGroup {
+public class AutoExchange extends CommandGroup {
 
-    public GripLift() {
-        addSequential(new GripperControl(1));
-        addSequential(new SetElevatorHeight(1));
-    	
-    	// Add Commands here:
+    public AutoExchange() {
+        // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
+    	addSequential(new DriveStraight(3.0, 0.5));
+    	addSequential(new TurnLeft(3.0, 0.7));
+    	addSequential(new DriveStraight(3.0, 0.5));
+    	addSequential(new TurnLeft(3.0, 0.7));
+    	addSequential(new DriveStraight(3.0, 0.5));
+    	addSequential(new GiveToExchange());
+    	addSequential(new DriveStraight(-3.0, 0.5));
+    	addSequential(new TurnRight(3.0, 0.7));
+    	addSequential(new DriveStraight(3.0, 0.5));
+    	addSequential(new TurnRight(3.0, 0.7));
+    	addSequential(new DriveStraight(3.0, 0.5));
 
         // To run multiple commands at the same time,
         // use addParallel()
