@@ -2,9 +2,6 @@ package org.usfirst.frc.team3049.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-import org.usfirst.frc.team3049.robot.commands.DriveStraight;
-import org.usfirst.frc.team3049.robot.commands.TurnRight;
-import org.usfirst.frc.team3049.robot.commands.TurnLeft;
 import org.usfirst.frc.team3049.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3049.robot.Robot;
 /**
@@ -12,6 +9,9 @@ import org.usfirst.frc.team3049.robot.Robot;
  */
 public class LeftPos3 extends CommandGroup {
 
+	/**
+	 * Auto Command going for the Left switch in start Position 3 (Right side)
+	 */
     public LeftPos3() {
     	
     	addSequential(new GyroTurnRight(90));

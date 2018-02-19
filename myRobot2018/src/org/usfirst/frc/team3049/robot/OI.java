@@ -10,16 +10,11 @@ import edu.wpi.first.wpilibj.buttons.Button;
 
 import org.usfirst.frc.team3049.robot.Robot;
 import org.usfirst.frc.team3049.robot.commands.ActivateClimber;
-import org.usfirst.frc.team3049.robot.commands.AutoTestCase;
-import org.usfirst.frc.team3049.robot.commands.DriveStraight;
 import org.usfirst.frc.team3049.robot.commands.GiveToExchange;
 import org.usfirst.frc.team3049.robot.commands.GripperControl;
 import org.usfirst.frc.team3049.robot.commands.ManualElevatorControl;
 import org.usfirst.frc.team3049.robot.commands.Print;
 import org.usfirst.frc.team3049.robot.commands.SetElevatorHeight;
-import org.usfirst.frc.team3049.robot.commands.TurnRight;
-import org.usfirst.frc.team3049.robot.commands.TurnLeft;
-
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -81,7 +76,6 @@ public class OI {
 	public OI() {
 		//Xbox Button Command Assignment
 		//buttonX.whenPressed(new Print("Thank God The Controller Works"));
-		buttonB.whenPressed(new TurnRight(3.0, 0.5));
 		buttonX.whenPressed(new GripperControl(1));
 		buttonY.whenPressed(new GripperControl(2));
 		

@@ -2,17 +2,14 @@ package org.usfirst.frc.team3049.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-import org.usfirst.frc.team3049.robot.commands.DriveStraight;
-import org.usfirst.frc.team3049.robot.commands.TurnRight;
-import org.usfirst.frc.team3049.robot.commands.TurnLeft;
-import org.usfirst.frc.team3049.robot.subsystems.Drivetrain;
-import org.usfirst.frc.team3049.robot.Robot;
-
 /**
  *
  */
 public class RightPos1 extends CommandGroup {
 
+	/**
+	 * Auto Command going for the right switch in start Position 1 (Left Side)
+	 */
     public RightPos1() {
     	
     	addSequential(new GyroTurnLeft(90));
