@@ -12,6 +12,11 @@ public class ActivateClimber extends Command { // only run as a WhileHeld button
 	private static boolean m_direction;
 	private static Climber m_climber;
 	private static double m_speed = 0.4; // adjust this to adjust climb speed
+	
+	/**
+	 * Command for Manually controlling the climber
+	 * @param direction Boolean, True = ascend. False = descend.
+	 */
     public ActivateClimber(boolean direction) {
         requires(Robot.climber);
         m_direction = direction;

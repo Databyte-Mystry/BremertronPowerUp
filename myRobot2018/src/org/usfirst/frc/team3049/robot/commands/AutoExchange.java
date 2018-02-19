@@ -7,6 +7,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class AutoExchange extends CommandGroup {
 
+	/**
+	 * Auto Command to give Power Cube into Exchange, then crosses Auto Line
+	 */
     public AutoExchange() {
         // Add Commands here:
         // e.g. addSequential(new Command1());

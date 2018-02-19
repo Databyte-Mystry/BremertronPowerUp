@@ -13,6 +13,11 @@ public class ArcadeDriveCommand extends Command {
 	private Drivetrain m_drivetrain;
 	private Joystick m_joystick; 
 	
+	/**
+	 * Command for Xbox Controller, Drives robot
+	 * @param drivetrain gets Drivetrain
+	 * @param joystick gets Joystick
+	 */
     public ArcadeDriveCommand(Drivetrain drivetrain, Joystick joystick) {
         m_drivetrain = drivetrain;
         m_joystick = joystick;

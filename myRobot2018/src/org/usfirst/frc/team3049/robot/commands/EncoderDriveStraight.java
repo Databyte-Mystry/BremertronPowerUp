@@ -16,8 +16,12 @@ public class EncoderDriveStraight extends Command {
 	private static Encoder m_encoderR = new Encoder(RobotMap.EncoderR_ChanA, RobotMap.EncoderR_ChanB);
 	private static double m_distance;
 	private static int wheelSize = 6; // Wheel Diameter
-	private static double m_speed = 0.3;// Speed of 
+	private static double m_speed = 0.3;// Speed of robot
 	
+	/**
+	 * Auto command that moves robot forward for a certain distance
+	 * @param distance Double, moves robot forward
+	 */
     public EncoderDriveStraight(double distance) {
     	requires(Robot.driveTrain);
     	m_drivetrain = Robot.driveTrain;
