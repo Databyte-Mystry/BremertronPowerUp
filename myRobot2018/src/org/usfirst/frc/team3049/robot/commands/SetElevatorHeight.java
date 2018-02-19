@@ -19,7 +19,17 @@ public class SetElevatorHeight extends Command {
 	private static Elevator m_elevator;
 	
 	/**
+	 * Command that sets the elevator to a certain Position
+	 * <h2>Height Settings:</h2>
 	 * 
+	 * <ul>
+	 * 	<li>0 = Ground</li>
+	 *  <li>1 = Exchange</li>
+	 *  <li>2 = Portal</li>
+	 *  <li>3 = Switch</li>
+	 *  <li>4 = Scale</li>
+	 *  <li>5 = Climb</li>
+	 * </ul>
 	 * @param setting Used to set value to desired height
 	 */
     public SetElevatorHeight(int setting) { // 0 for Ground, 1 for Exchange, 2 for Portal, 3 for Switch, 4 for Scale, 5 for Climb

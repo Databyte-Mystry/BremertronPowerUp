@@ -13,6 +13,10 @@ public class GripperControl extends Command {
 	private static Gripper m_pneumatics;
 	private static boolean m_finished = false;
 	
+	/**
+	 * Command that controls the gripper for picking up Power Cubes
+	 * @param input Integer, If equals 1 then claw grips. If equals 2 then the claw releases.
+	 */
     public GripperControl(int input) { // input should be true to close gripper
        requires(Robot.pneumatics);
        m_pneumatics = Robot.pneumatics;

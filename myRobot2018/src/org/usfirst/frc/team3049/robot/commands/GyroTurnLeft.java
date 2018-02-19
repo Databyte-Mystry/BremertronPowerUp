@@ -13,6 +13,10 @@ public class GyroTurnLeft extends Command {
 	private static int m_angle;
 	private static Drivetrain m_drivetrain = Robot.driveTrain;
 
+	/**
+	 * Auto command for turning left
+	 * @param angle Integer, Specify number of degrees turning left.
+	 */
     public GyroTurnLeft(int angle) {//angle increases as Robot turns clockwise. Gyro can go negative
     	requires(Robot.driveTrain);
         m_angle = angle;

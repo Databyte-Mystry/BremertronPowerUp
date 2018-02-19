@@ -15,6 +15,10 @@ public class ManualElevatorControl extends Command { // only run as a WhileHeld 
 	private static double m_speedDown = 0.01;
 	private boolean m_direction;
 	
+	/**
+	 * Command that Manually Controls the elevator
+	 * @param direction Boolean, If true elevator goes up. If false elevator goes down
+	 */
     public ManualElevatorControl(boolean direction) {
        requires(Robot.elevator);
        m_elevator = Robot.elevator;

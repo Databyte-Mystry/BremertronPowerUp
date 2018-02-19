@@ -7,6 +7,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class GripLift extends CommandGroup {
 
+	/**
+	 * Auto command that Grips the power cube and raises it to a certain height
+	 */
     public GripLift() {
         addSequential(new GripperControl(1));
         addSequential(new SetElevatorHeight(1));

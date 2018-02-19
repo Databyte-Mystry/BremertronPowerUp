@@ -13,6 +13,9 @@ public class GiveToExchange extends Command {
 	private static Gripper m_pneumatics;
 	private static boolean m_finished = false;
 	
+	/**
+	 * In a sense, the push block Command
+	 */
     public GiveToExchange() { //Must already be on level with Exchange
         requires(Robot.pneumatics);
         m_pneumatics  = Robot.pneumatics;

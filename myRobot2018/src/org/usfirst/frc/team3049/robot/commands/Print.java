@@ -8,6 +8,11 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Print extends Command {
 	private static String m_line;
 	private static boolean m_finished = false;
+	
+	/**
+	 * Command that prints a line
+	 * @param line String being printed
+	 */
     public Print(String line) {
        m_line = line;
     }
