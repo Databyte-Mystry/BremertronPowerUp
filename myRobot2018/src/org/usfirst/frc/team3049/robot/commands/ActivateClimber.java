@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ActivateClimber extends Command { // only run as a WhileHeld button type, otherwise it will run forever
 	private static boolean m_direction;
 	private static Climber m_climber;
-	private static double m_speed = 0.4; // adjust this to adjust climb speed
+	private static double m_speed = 0.8; // adjust this to adjust climb speed
 	
 	/**
 	 * Command for Manually controlling the climber
