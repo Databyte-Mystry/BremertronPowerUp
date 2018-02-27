@@ -34,6 +34,12 @@ public class RobotMap {
 	public static int EncoderL_ChanB = 1;
 	public static int EncoderR_ChanA = 2;
 	public static int EncoderR_ChanB = 3;
+	public static int Limit_Switch_Ground = 4;
+	public static int Magnetic_Switch_Carry = 5;
+	public static int Magnetic_Switch_Portal = 6;
+	public static int Magnetic_Switch_Switch = 7;
+	public static int Magnetic_Switch_Scale = 8;
+	public static int Magnetic_Switch_Climb = 9;
 	
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

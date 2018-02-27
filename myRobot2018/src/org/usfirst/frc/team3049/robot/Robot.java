@@ -200,8 +200,6 @@ public class Robot extends IterativeRobot {
 	private void log(){
 		SmartDashboard.putNumber("Position", position);//????
 		SmartDashboard.putNumber("Gyro Angle:", gyro.getAngle());// Displays Gyro Angle
-		SmartDashboard.putNumber("Lift", (Elevator.strPot.get() / 94) * 100);// Progress Bar for Lift
-		SmartDashboard.putString("Lift Height", String.format("%.4g%n", Elevator.strPot.get()) + " In.");// Displays Height for Lift in Inches
 //		SmartDashboard.putNumber("Distance", lidar.getDistance());// Displays distance in inches.
 	}
 
