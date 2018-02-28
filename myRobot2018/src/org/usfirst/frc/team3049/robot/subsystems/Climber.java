@@ -2,14 +2,14 @@ package org.usfirst.frc.team3049.robot.subsystems;
 
 import org.usfirst.frc.team3049.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
  */
 public class Climber extends Subsystem {
-	private static Spark m_climber = new Spark(RobotMap.Climber_Motor);
+	private static Talon m_climber = new Talon(RobotMap.Climber_Motor);
 	
 	public void ascend(double speed){
 		m_climber.set(-speed);

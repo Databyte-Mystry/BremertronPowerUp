@@ -4,6 +4,7 @@ import org.usfirst.frc.team3049.robot.OI;
 import org.usfirst.frc.team3049.robot.RobotMap;
 import org.usfirst.frc.team3049.robot.commands.ArcadeDriveCommand;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -23,6 +24,9 @@ public class Drivetrain extends Subsystem {
 	private Talon m_frontRight = new Talon(RobotMap.FRONT_RIGHT_MOTOR);
 	private Talon m_rearRight = new Talon(RobotMap.REAR_RIGHT_MOTOR);
 	private SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight,m_rearRight);
+	
+	public static Encoder m_encoderDriveL = new Encoder(RobotMap.EncoderL_ChanA, RobotMap.EncoderL_ChanB);
+	public static Encoder m_encoderDriveR = new Encoder(RobotMap.EncoderR_ChanA, RobotMap.EncoderR_ChanB);
 	
 	private double dz = 0.08; //change this to adjust the deadzone on the joysticks
 	private double topSpeed = 0.8; // change this to adjust top speed achievable by joystick drive also affects total sensitivity

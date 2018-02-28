@@ -3,6 +3,7 @@ package org.usfirst.frc.team3049.robot.commands;
 import org.usfirst.frc.team3049.robot.Robot;
 import org.usfirst.frc.team3049.robot.subsystems.Elevator;
 import org.usfirst.frc.team3049.robot.subsystems.Gripper;
+import org.usfirst.frc.team3049.robot.commands.ElevatorBrake;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
@@ -12,7 +13,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class SetElevatorHeight extends Command {
-	private static double m_distance;
 	private static DigitalInput m_target;
 	private int m_setting;
 	private static double m_speedUp = 0.1;//Change this number to change the rate of raising for set heights
@@ -129,12 +129,12 @@ public class SetElevatorHeight extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	m_elevator.stop();
+    	new ElevatorBrake();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	m_elevator.stop();
+    	new ElevatorBrake(); 
     }
 }

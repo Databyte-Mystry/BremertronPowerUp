@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class EncoderDriveStraight extends Command {
 	private static Drivetrain m_drivetrain;
-	private static Encoder m_encoderL = new Encoder(RobotMap.EncoderL_ChanA, RobotMap.EncoderL_ChanB);
-	private static Encoder m_encoderR = new Encoder(RobotMap.EncoderR_ChanA, RobotMap.EncoderR_ChanB);
+	private static Encoder m_encoderL;
+	private static Encoder m_encoderR;
 	private static double m_distance;
 	private static int wheelSize = 6; // Wheel Diameter
 	private static double m_speed = 0.3;// Speed of robot
@@ -25,6 +25,8 @@ public class EncoderDriveStraight extends Command {
     public EncoderDriveStraight(double distance) {
     	requires(Robot.driveTrain);
     	m_drivetrain = Robot.driveTrain;
+    	m_encoderL = Drivetrain.m_encoderDriveL;
+    	m_encoderR = Drivetrain.m_encoderDriveR;
     	m_distance = distance;
     	m_encoderL.reset(); // resets both encoders to 0
     	m_encoderR.reset();
