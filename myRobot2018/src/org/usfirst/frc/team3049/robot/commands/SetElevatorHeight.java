@@ -43,9 +43,9 @@ public class SetElevatorHeight extends Command {
     	}else if (m_setting == 1){
     		m_target = Elevator.switchHCarry;
     	}else if (m_setting == 2){
-    		m_target = Elevator.switchHPortal;
+//    		m_target = Elevator.switchHPortal;
     	}else if (m_setting == 3){
-    		m_target = Elevator.switchHSwitch;
+//    		m_target = Elevator.switchHSwitch;
     	}else if (m_setting == 4){
     		m_target = Elevator.switchHScale;
     	}else if (m_setting == 5){
@@ -65,11 +65,11 @@ public class SetElevatorHeight extends Command {
     	;
     	
     	case 1: //Carry
-    		if(Elevator.switchHPortal.get()){
-    			m_elevator.lower(m_speedDown);
-    		}else if(Elevator.switchHSwitch.get()){
-    			m_elevator.lower(m_speedDown);
-    		}else if(Elevator.switchHScale.get()){
+//    		if(Elevator.switchHPortal.get()){
+//    			m_elevator.lower(m_speedDown);
+//    		}else if(Elevator.switchHSwitch.get()){
+//    			m_elevator.lower(m_speedDown);
+    		/*}else*/ if(Elevator.switchHScale.get()){
     			m_elevator.lower(m_speedDown);
     		}else if(Elevator.switchHClimb.get()){
     			m_elevator.lower(m_speedDown);
@@ -79,9 +79,9 @@ public class SetElevatorHeight extends Command {
     	case 2: //Portal
     		if(Elevator.switchHCarry.get()){
     			m_elevator.raise(m_speedUp);
-    		}else if(Elevator.switchHSwitch.get()){
+    		}else /*if(Elevator.switchHSwitch.get()){
     			m_elevator.lower(m_speedDown);
-    		}else if(Elevator.switchHScale.get()){
+    		}else */if(Elevator.switchHScale.get()){
     			m_elevator.lower(m_speedDown);
     		}else if(Elevator.switchHClimb.get()){
     			m_elevator.lower(m_speedDown);
@@ -91,9 +91,9 @@ public class SetElevatorHeight extends Command {
     	case 3: //Switch
     		if(Elevator.switchHCarry.get()){
     			m_elevator.raise(m_speedUp);
-    		}else if(Elevator.switchHPortal.get()){
+    		}else /*if(Elevator.switchHPortal.get()){
     			m_elevator.raise(m_speedUp);
-    		}else if(Elevator.switchHScale.get()){
+    		}else */if(Elevator.switchHScale.get()){
     			m_elevator.lower(m_speedDown);
     		}else if(Elevator.switchHClimb.get()){
     			m_elevator.lower(m_speedDown);
@@ -101,19 +101,19 @@ public class SetElevatorHeight extends Command {
     	;
     	
     	case 4: //Scale
-    		if(Elevator.switchHCarry.get()){
-    			m_elevator.raise(m_speedUp);
-    		}else if(Elevator.switchHPortal.get()){
-    			m_elevator.raise(m_speedUp);
-    		}else if(Elevator.switchHSwitch.get()){
-    			m_elevator.raise(m_speedUp);
-    		}else if(Elevator.switchHClimb.get()){
-    			m_elevator.lower(m_speedDown);
-    		}
+    		m_elevator.raise(m_speedUp);
     	;
     	
     	case 5: //Climb
-    		m_elevator.raise(m_speedUp);
+    		if(Elevator.switchHCarry.get()){
+    			m_elevator.raise(m_speedUp);
+    		}else /*if(Elevator.switchHPortal.get()){
+    			m_elevator.raise(m_speedUp);
+    		}else if(Elevator.switchHSwitch.get()){
+    			m_elevator.raise(m_speedUp);
+    		}else*/ if(Elevator.switchHScale.get()){
+    			m_elevator.lower(m_speedDown);
+    		}
     	;
     	
     	default: //Debug

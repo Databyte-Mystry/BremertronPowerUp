@@ -16,10 +16,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Elevator extends Subsystem {
-	public static DigitalInput switchHGround = new DigitalInput(RobotMap.Limit_Switch_Ground);
+	public static DigitalInput switchHGround = new DigitalInput(RobotMap.Magnetic_Switch_Ground);
 	public static DigitalInput switchHCarry = new DigitalInput(RobotMap.Magnetic_Switch_Carry); //
-	public static DigitalInput switchHPortal = new DigitalInput(RobotMap.Magnetic_Switch_Portal); //
-	public static DigitalInput switchHSwitch = new DigitalInput(RobotMap.Magnetic_Switch_Switch); //
+//	public static DigitalInput switchHPortal = new DigitalInput(RobotMap.Magnetic_Switch_Portal); //
+//	public static DigitalInput switchHSwitch = new DigitalInput(RobotMap.Magnetic_Switch_Switch); //
 	public static DigitalInput switchHScale = new DigitalInput(RobotMap.Magnetic_Switch_Scale); //
 	public static DigitalInput switchHClimb = new DigitalInput(RobotMap.Magnetic_Switch_Climb); //
 	

@@ -3,6 +3,7 @@ package org.usfirst.frc.team3049.robot.commands;
 import org.usfirst.frc.team3049.robot.Robot;
 import org.usfirst.frc.team3049.robot.subsystems.Elevator;
 import org.usfirst.frc.team3049.robot.subsystems.Gripper;
+import org.usfirst.frc.team3049.robot.commands.ElevatorBrake;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -45,12 +46,12 @@ public class ManualElevatorControl extends Command { // only run as a WhileHeld 
 
     // Called once after isFinished returns true
     protected void end() {
-    	m_elevator.stop();
+    	new ElevatorBrake();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	m_elevator.stop();
+    	new ElevatorBrake();
     }
 }
