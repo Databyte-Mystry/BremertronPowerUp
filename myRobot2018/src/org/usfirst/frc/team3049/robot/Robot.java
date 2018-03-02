@@ -45,6 +45,7 @@ public class Robot extends IterativeRobot {
 	public static Gripper pneumatics;
 	public static Climber climber;
 	public static LidarSubsystem lidar;
+	public static DriverStation driverstation;
 	
 	Command autonomousCommand;
 	Command gripperCommand;
@@ -60,14 +61,15 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 
 		driveTrain = new Drivetrain();
+		//driverstation = new DriverStation();
 		gyro = new ADXRS450_Gyro();
 		elevator = new Elevator();
 		pneumatics = new Gripper();
 		climber = new Climber();
 		lidar = new LidarSubsystem();
 		oi = new OI();
-		position = 1;
-//		position =  DriverStation.getLocation(); 
+		position = 2;
+		//position =  driverstation.getLocation(); 
 //		autonomousCommand = new AutoTestCase();
 		gyro.calibrate();
 		CameraServer.getInstance().startAutomaticCapture();

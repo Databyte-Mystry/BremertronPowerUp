@@ -5,6 +5,7 @@ import org.usfirst.frc.team3049.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro; //
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -29,8 +30,8 @@ public class GyroTurnRight extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	m_drivetrain.drive(0, 0.5);
-    	System.out.println("Gyro Angle: " + Robot.gyro.getAngle());
+    	m_drivetrain.drive(0, 0.35);
+    	SmartDashboard.putNumber("Gyro Angle:", Robot.gyro.getAngle());
     }
 
     // Make this return true when this Command no longer needs to run execute()

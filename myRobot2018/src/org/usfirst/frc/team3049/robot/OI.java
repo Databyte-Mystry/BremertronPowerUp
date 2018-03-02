@@ -90,7 +90,7 @@ public class OI {
 		buttonGroundH.whenPressed(new SetElevatorHeight(0));// 0 declares that elevator will go to Ground height
 		buttonClimbH.whenPressed(new SetElevatorHeight(5));// 5 declares that elevator will go to Climb height
 		buttonClimbMotorFwd.whileHeld(new ActivateClimber(true)); // true declares that the Robot will climb up
-		buttonClimbMotorRev.whileHeld(new ActivateClimber(false)); //false declares that the Robot will climb down
+//		buttonClimbMotorRev.whileHeld(new ActivateClimber(false)); //false declares that the Robot will climb down
 		buttonLiftUp.whileHeld(new ManualElevatorControl(true)); // true declares that the elevator will raise
 		buttonLiftDown.whileHeld(new ManualElevatorControl(false)); // false declares that the elevator will lower
 		//buttonGrip.whileHeld(new Print("Thank God The New Controller Works"));

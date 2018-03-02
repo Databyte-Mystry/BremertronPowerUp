@@ -14,8 +14,8 @@ public class RightPos2 extends CommandGroup {
 	 */
     public RightPos2() {
     	
-    	addSequential(new EncoderDriveStraight(3.0));
-    	addSequential(new GyroTurnLeft(90));
+    	//addSequential(new EncoderDriveStraight(3.0));
+    	//addSequential(new GyroTurnLeft(90));
     	addSequential(new GyroTurnRight(90));
     	
         // Add Commands here:
