@@ -12,7 +12,7 @@ public class GripLift extends CommandGroup {
 	 */
     public GripLift() {
         addSequential(new GripperControl(1));
-        addSequential(new SetElevatorHeight(1));
+        addSequential(new SetElevatorHeight(3));
     	
     	// Add Commands here:
         // e.g. addSequential(new Command1());
