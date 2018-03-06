@@ -29,7 +29,7 @@ public class Drivetrain extends Subsystem {
 	public static Encoder m_encoderDriveR = new Encoder(RobotMap.EncoderR_ChanA, RobotMap.EncoderR_ChanB);
 	
 	private double dz = 0.08; //change this to adjust the deadzone on the joysticks
-	private double topSpeed = 0.6; // change this to adjust top speed achievable by joystick drive also affects total sensitivity
+	private double topTurnSpeed = 0.6; // change this to adjust top turning speed achievable by joystick drive also affects total sensitivity
 	private double sens = 0.5; // sensitivity
 	
 	
@@ -57,15 +57,15 @@ public class Drivetrain extends Subsystem {
 			i = 0.0;
 		}
 		else if (i < 0){			// these two statements let us have  a full range on the motors with the deadzone and adjust sensitivity and top speed
-			i = -(Math.abs(i)-dz)/(1-dz)*topSpeed;
+			i = -(Math.abs(i)-dz)/(1-dz)*topTurnSpeed;
 		}
 			else {
-			i = (i-dz)/(1-dz)*topSpeed;
+			i = (i-dz)/(1-dz)*topTurnSpeed;
 		}
 		return i;
 	}
 	public double adjSens(double i){
-		sens = -OI.joy.getRawAxis(OI.axisZ);
+		sens = (OI.joy.getRawAxis(OI.axisZ)+1)/2;
 		i = sens * Math.pow(i, 3) + (1 -sens)* i;
 		if (i > 0.6){
 			i = 0.6;
