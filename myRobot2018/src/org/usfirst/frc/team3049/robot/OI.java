@@ -39,6 +39,24 @@ public class OI {
 	public static int axisY = 1;
 	public static int axisZ = 2;
 	
+public static Joystick aux = new Joystick(1); // Auxilary Joystick
+	
+	//Auxilary Stick Button Mapping
+	JoystickButton buttonAux1 = new JoystickButton(joy, 1);
+	JoystickButton buttonAux2 = new JoystickButton(joy, 2);
+	JoystickButton buttonAux3 = new JoystickButton(joy, 3);
+	JoystickButton buttonAux4 = new JoystickButton(joy, 4);
+	JoystickButton buttonAux5 = new JoystickButton(joy, 5);
+	JoystickButton buttonAux6 = new JoystickButton(joy, 6);
+	JoystickButton buttonAux7 = new JoystickButton(joy, 7);
+	JoystickButton buttonAux8 = new JoystickButton(joy, 8);
+	JoystickButton buttonAux9 = new JoystickButton(joy, 9);
+	JoystickButton buttonAux10 = new JoystickButton(joy, 10);
+	JoystickButton buttonAux11 = new JoystickButton(joy, 11);
+	public static int axisAuxX = 0;
+	public static int axisAuxY = 1;
+	public static int axisAuxZ = 2;
+	
 	
 	// Xbox Controller Button Mapping
 //	JoystickButton buttonA = new JoystickButton(joy, 1); // runs AutoTestCase
