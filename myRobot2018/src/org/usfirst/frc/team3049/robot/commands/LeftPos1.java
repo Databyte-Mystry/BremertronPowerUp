@@ -15,9 +15,11 @@ public class LeftPos1 extends CommandGroup {
 	 */
     public LeftPos1() {
     	
-    	addSequential(new EncoderDriveStraight(3.0));
-    	addSequential(new GyroTurnRight(90));
-    	addSequential(new GyroTurnLeft(90));
+    	addSequential(new GyroDriveStraight(5.0, 0.5));
+//    	addSequential(new GyroDriveStraight(10.0, 0));
+
+//    	addSequential(new GyroTurnRight(90));
+//    	addSequential(new GyroTurnLeft(90));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

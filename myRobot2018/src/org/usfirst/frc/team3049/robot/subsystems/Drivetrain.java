@@ -29,7 +29,8 @@ public class Drivetrain extends Subsystem {
 	public static Encoder m_encoderDriveR = new Encoder(RobotMap.EncoderR_ChanA, RobotMap.EncoderR_ChanB);
 	
 	private double dz = 0.08; //change this to adjust the deadzone on the joysticks
-	private double topSpeed = 0.8; // change this to adjust top speed achievable by joystick drive also affects total sensitivity
+	private double topSpeed = 0.6; // change this to adjust top speed achievable by joystick drive also affects total sensitivity
+	private double sens = 0.5; // sensitivity
 	
 	
 	public Drivetrain(){
@@ -61,18 +62,23 @@ public class Drivetrain extends Subsystem {
 			else {
 			i = (i-dz)/(1-dz)*topSpeed;
 		}
-		
-		
+		return i;
+	}
+	public double adjSens(double i){
+		sens = -OI.joy.getRawAxis(OI.axisZ);
+		i = sens * Math.pow(i, 3) + (1 -sens)* i;
+		if (i > 0.6){
+			i = 0.6;
+		}
 		
 		return i;
 	}
-	
 	public void jdrive(Joystick joy) { // the method used to drive with a joystick
 		
-		double x = deadzone(-joy.getRawAxis(OI.axisLY)); //
-		double r = deadzone(joy.getRawAxis(OI.axisRX));
+		double x = adjSens(-joy.getRawAxis(OI.axisY)); //
+		double r = deadzone(joy.getRawAxis(OI.axisX));
 //		System.out.println(""+joy.getRawAxis(0)+""+joy.getRawAxis(1)+""+joy.getRawAxis(2)+""+joy.getRawAxis(3)+joy.getRawAxis(4));
-		System.out.println(" OI.axisLY:"+joy.getRawAxis(OI.axisLY)+" OI.axisRX:"+joy.getRawAxis(OI.axisRX));
+//		System.out.println(" OI.axisLY:"+joy.getRawAxis(OI.axisLY)+" OI.axisRX:"+joy.getRawAxis(OI.axisRX));
 		drive(x,r);
 //		drive(joy.getRawAxis(OI.axisLY), joy.getRawAxis(OI.axisRX));
 	}

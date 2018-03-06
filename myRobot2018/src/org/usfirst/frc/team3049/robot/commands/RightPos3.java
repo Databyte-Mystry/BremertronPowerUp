@@ -15,9 +15,12 @@ public class RightPos3 extends CommandGroup {
 	 */
     public RightPos3() {
     	
-    	addSequential(new GyroTurnRight(90));
-    	addSequential(new GyroTurnLeft(90));
-    	addSequential(new EncoderDriveStraight(3.0));
+    	addSequential(new GyroDriveStraight(5.0, 0.5));
+//    	addSequential(new GyroDriveStraight(10.0, 0));
+
+//    	addSequential(new GyroTurnRight(90));
+//    	addSequential(new GyroTurnLeft(90));
+//    	addSequential(new EncoderDriveStraight(3.0));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

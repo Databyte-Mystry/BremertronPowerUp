@@ -4,22 +4,26 @@ import org.usfirst.frc.team3049.robot.Robot;
 import org.usfirst.frc.team3049.robot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
 public class GyroDriveStraight extends Command {
-	private static double m_speed = 0.5;
+	private static double m_speed;
 	private static double m_time;
-	private double m_turnSpeed = 0.1; // Placeholder number, base turnspeed needs to be determined by testing 
+	private double m_turnSpeed = -0.5; // Placeholder number, base turnspeed needs to be determined by testing
+	final double Kp = 0.03;
 	private static ADXRS450_Gyro m_gyro;
 	private static Drivetrain m_drivetrain;
 	
-    public GyroDriveStraight(double time) {
+    public GyroDriveStraight(double time, double speed) {
        requires(Robot.driveTrain);
        m_drivetrain = Robot.driveTrain;
        m_time = time;
+       m_speed = speed;
        m_gyro = Robot.gyro;
        
     }
@@ -32,12 +36,19 @@ public class GyroDriveStraight extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(m_gyro.getAngle() > 0.05){
-    		m_turnSpeed =+ -0.01;
-    	}else if (m_gyro.getAngle() < -0.05){
-    		m_turnSpeed =+ 0.01;
-    	}
-    	m_drivetrain.drive(m_speed, m_turnSpeed);
+//    	if(m_gyro.getAngle() > 15){ // is turning right
+//    		m_turnSpeed =+ -0.05;
+////    		m_drivetrain.drive(0, -0.35);
+//    	}else if (m_gyro.getAngle() < -15){ // is turning left
+//    		m_turnSpeed =+ 0.05;
+////    		m_drivetrain.drive(0, 0.35);
+////    	}else {
+//    		m_drivetrain.drive(m_speed, m_turnSpeed);
+//    	}
+    	double m_angle = m_gyro.getAngle();
+    	m_drivetrain.drive(m_speed, -m_angle * Kp);
+    	Timer.delay(0.01);
+    	SmartDashboard.putNumber("Gyro Angle:", m_gyro.getAngle());
     }
 
     // Make this return true when this Command no longer needs to run execute()

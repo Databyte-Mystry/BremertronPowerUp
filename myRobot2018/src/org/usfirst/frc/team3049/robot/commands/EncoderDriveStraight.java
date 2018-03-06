@@ -26,8 +26,8 @@ public class EncoderDriveStraight extends Command {
     public EncoderDriveStraight(double distance) {
     	requires(Robot.driveTrain);
     	m_drivetrain = Robot.driveTrain;
-    	m_encoderL = Drivetrain.m_encoderDriveL;
-    	m_encoderR = Drivetrain.m_encoderDriveR;
+//    	m_encoderL = Drivetrain.m_encoderDriveL;
+//    	m_encoderR = Drivetrain.m_encoderDriveR;
     	m_distance = distance;
     	m_encoderL.reset(); // resets both encoders to 0
     	m_encoderR.reset();

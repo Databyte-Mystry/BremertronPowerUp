@@ -12,9 +12,11 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.I2C.Port;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DigitalInput;
 
 import org.usfirst.frc.team3049.robot.subsystems.LidarSubsystem;
 import org.usfirst.frc.team3049.robot.commands.GripperControl;
+import org.usfirst.frc.team3049.robot.commands.GyroDriveStraight;
 import org.usfirst.frc.team3049.robot.commands.GyroTurnLeft;
 import org.usfirst.frc.team3049.robot.commands.LeftPos1;
 import org.usfirst.frc.team3049.robot.commands.LeftPos2;
@@ -46,6 +48,9 @@ public class Robot extends IterativeRobot {
 	public static Climber climber;
 	public static LidarSubsystem lidar;
 	public static DriverStation driverstation;
+	
+	public DigitalInput test1;
+	public DigitalInput test2;
 	
 	Command autonomousCommand;
 	Command gripperCommand;
@@ -133,7 +138,7 @@ public class Robot extends IterativeRobot {
 				System.out.println("RightPos3");
 			}
 		}
-//		autonomousCommand = new GyroTurnLeft(90);
+//		autonomousCommand = new GyroDriveStraight(5, 0.5);
 		if (autonomousCommand != null)
 			autonomousCommand.start();
 	}
