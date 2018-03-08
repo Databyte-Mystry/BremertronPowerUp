@@ -14,8 +14,14 @@ public class LeftPos2 extends CommandGroup {
 	 */
     public LeftPos2() {
     	
-    	addSequential(new GyroDriveStraight(5.0, 0.5));
-//    	addSequential(new GyroDriveStraight(10.0, 0));
+    	addSequential(new GripperControl(1));
+    	addSequential(new SetElevatorHeight(1));
+    	addSequential(new GyroDriveStraight(1.0, 0.5)); //placeholder
+    	addSequential(new GyroTurnLeft(90));
+    	addSequential(new GyroDriveStraight(2.0, 0.5)); //placeholder
+    	addSequential(new GyroTurnRight(90));
+    	addSequential(new GyroDriveStraight(0.5, 0.5)); //placeholder
+    	addSequential(new GripperControl(3));
 
 //    	addSequential(new GyroTurnLeft(90));
 //    	addSequential(new EncoderDriveStraight(3.0));
