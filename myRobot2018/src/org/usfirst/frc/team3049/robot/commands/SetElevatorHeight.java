@@ -25,11 +25,8 @@ public class SetElevatorHeight extends Command {
 	 * 
 	 * <ul>
 	 * 	<li>0 = Ground</li>
-	 *  <li>1 = Exchange</li>
-	 *  <li>2 = Portal</li>
-	 *  <li>3 = Switch</li>
-	 *  <li>4 = Scale</li>
-	 *  <li>5 = Climb</li>
+	 *  <li>1 = Top</li>
+	 *  <li>2 = Carry</li>
 	 * </ul>
 	 * @param setting Used to set value to desired height
 	 */
