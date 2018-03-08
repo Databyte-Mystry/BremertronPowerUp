@@ -27,10 +27,10 @@ public class GiveToExchange extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	m_pneumatics.push(true); // Extends pusher piston
+    	m_pneumatics.pushGround(true); // Extends pusher piston
     	m_pneumatics.release(); // Releases gripper pistons
     	Timer.delay(0.75); // Delays for 0.75 seconds
-    	m_pneumatics.push(false); // Retracts pusher piston 
+    	m_pneumatics.pushGround(false); // Retracts pusher piston 
     	m_finished = true; // declares that command is finished
     }
 

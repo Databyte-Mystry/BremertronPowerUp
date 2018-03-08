@@ -1,6 +1,8 @@
 package org.usfirst.frc.team3049.robot.subsystems;
 
+import org.usfirst.frc.team3049.robot.OI;
 import org.usfirst.frc.team3049.robot.RobotMap;
+import org.usfirst.frc.team3049.robot.commands.ManualElevatorControl;
 
 import edu.wpi.first.wpilibj.CounterBase;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -18,11 +20,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Elevator extends Subsystem {
 	public DigitalInput switchHGround;
-	public DigitalInput switchHCarry; //
-//	public static DigitalInput switchHPortal = new DigitalInput(RobotMap.Magnetic_Switch_Portal); //
-//	public static DigitalInput switchHSwitch = new DigitalInput(RobotMap.Magnetic_Switch_Switch); //
-	public DigitalInput switchHScale; //
-	public DigitalInput switchHClimb; //
+	public DigitalInput switchHTop; 
 	
 	public static Encoder m_encoderElevator = new Encoder(RobotMap.EncoderE_ChanA, RobotMap.EncoderE_ChanB, true, CounterBase.EncodingType.k4X);
 	
@@ -34,10 +32,8 @@ public class Elevator extends Subsystem {
 	
 	public Elevator (){
 		try{
-		switchHGround = new DigitalInput(RobotMap.Magnetic_Switch_Ground);
-		switchHCarry = new DigitalInput(RobotMap.Magnetic_Switch_Carry);
-		switchHScale = new DigitalInput(RobotMap.Magnetic_Switch_Scale); //
-		switchHClimb = new DigitalInput(RobotMap.Magnetic_Switch_Climb); 
+		switchHGround = new DigitalInput(RobotMap.Limit_Switch_Ground);
+		switchHTop = new DigitalInput(RobotMap.Limit_Switch_Top);
 		}catch(Exception e){
 			System.out.println("Elevator Constructor Failed");
 		}
@@ -47,7 +43,7 @@ public class Elevator extends Subsystem {
     	m_elevatorMotors.set(speed);
     }
     
-    public void lower(double speed){
+    public void lower(){
 //    	liftBrake.set(true);
     		m_elevatorMotors.set(m_elevatorMotors.get() - 0.05);
     		Timer.delay(0.5);
@@ -79,6 +75,7 @@ public class Elevator extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new ManualElevatorControl(OI.aux.getRawAxis(OI.axisAuxY)));
     }
 }
 

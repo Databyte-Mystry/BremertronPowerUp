@@ -22,10 +22,11 @@ public class RobotMap {
 	public static int Elevator_Motor2 = 6;
 	
 	// Pneumatic Solenoids     Port Assignments can overlap with Motor Port assignments
-	public static int Pusher_Solenoid = 0;
+	public static int Pusher_Ground_Solenoid = 0;
 	public static int Brake_Solenoid = 1;
 	public static int Gripper_SolenoidA = 7;
 	public static int Gripper_SolenoidB = 4;
+	public static int Pusher_Gripper_Solenoid = 5;
 
 	//Analog Inputs
 	public static int String_Potentiometer = 0;
@@ -37,12 +38,8 @@ public class RobotMap {
 	public static int EncoderR_ChanB = 3;
 	public static int EncoderE_ChanA = 4;
 	public static int EncoderE_ChanB = 5;
-	public static int Magnetic_Switch_Ground = 6;
-	public static int Magnetic_Switch_Carry = 7;
-//	public static int Magnetic_Switch_Portal = 8;
-//	public static int Magnetic_Switch_Switch = 9;
-	public static int Magnetic_Switch_Scale = 9;
-	public static int Magnetic_Switch_Climb = 8;
+	public static int Limit_Switch_Ground = 6;
+	public static int Limit_Switch_Top = 7;
 	
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

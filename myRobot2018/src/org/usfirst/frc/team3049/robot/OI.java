@@ -131,6 +131,14 @@ public static Joystick aux = new Joystick(1); // Auxilary Joystick
 //		buttonLiftUp.whileHeld(new ManualElevatorControl(true)); // true declares that the elevator will raise
 //		buttonLiftDown.whileHeld(new ManualElevatorControl(false)); // false declares that the elevator will lower
 //		//buttonGrip.whileHeld(new Print("Thank God The New Controller Works"));
+		
+		//Auxilary Joystick Command Assignment
+		buttonAux1.whenPressed(new GripperControl(1)); // 1 for grip
+		buttonAux3.whenPressed(new GripperControl(3)); // 3 for activate gripper piston, then release
+		buttonAux4.whenPressed(new GripperControl(2)); // 2 for release
+		buttonAux5.whenPressed(new GripperControl(2)); // 2 for release
+		buttonAux2.whenPressed(new GiveToExchange());
+		
 	}
 
 	public Joystick getJoystick() {

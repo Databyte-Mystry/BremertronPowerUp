@@ -16,7 +16,7 @@ public class EncoderDriveStraight extends Command {
 	private static Encoder m_encoderL;
 	private static Encoder m_encoderR;
 	private static double m_distance;
-	private static double wheelSize = 0.5; // Wheel Diameter
+	private static double wheelSize = 0.5; // Wheel Diameter in ft
 	private static double m_speed = 0.5;// Speed of robot
 	
 	/**

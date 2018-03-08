@@ -29,25 +29,26 @@ public class ElevatorBrake extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(!m_encoderE.getStopped()){
-    		System.out.println("Elevator Not Stopped");
-    		m_elevator.lower(m_speed);
-//    		if(m_encoderE.getDirection()){
-//    			m_elevator.lower(m_speed);
-//    			m_speed =+ 0.05;
-//    		}else {
-//    			m_elevator.raise(m_speed);
-//    			m_speed =+ 0.05;
-//    		}
-    	}else{
-    		System.out.println("Elevator Stopped");
-    	}
+//    	if(!m_encoderE.getStopped()){
+//    		System.out.println("Elevator Not Stopped");
+//    		m_elevator.lower();
+////    		if(m_encoderE.getDirection()){
+////    			m_elevator.lower(m_speed);
+////    			m_speed =+ 0.05;
+////    		}else {
+////    			m_elevator.raise(m_speed);
+////    			m_speed =+ 0.05;
+////    		}
+//    	}else{
+//    		System.out.println("Elevator Stopped");
+//    	}
+    	m_elevator.lower();
     
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return !m_elevator.switchHTop.get();
     }
 
     // Called once after isFinished returns true

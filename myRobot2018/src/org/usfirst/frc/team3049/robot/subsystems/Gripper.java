@@ -11,7 +11,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Gripper extends Subsystem {
-	public Solenoid pusher = new Solenoid(RobotMap.Pusher_Solenoid);//default should be retracted
+	public Solenoid pusherGround = new Solenoid(RobotMap.Pusher_Ground_Solenoid);//default should be retracted
+	public Solenoid pusherGripper = new Solenoid(RobotMap.Pusher_Gripper_Solenoid);//default should be retracted
 	public DoubleSolenoid gripper = new DoubleSolenoid(RobotMap.Gripper_SolenoidA, RobotMap.Gripper_SolenoidB);//default should be release
 	public void grip(){
 		gripper.set(Value.kForward);
@@ -21,8 +22,12 @@ public class Gripper extends Subsystem {
     	gripper.set(Value.kReverse);
     }
     
-    public void push(boolean pushOn){ 	
-    	pusher.set(pushOn);
+    public void pushGround(boolean pushOn){ 	
+    	pusherGround.set(pushOn);
+    }
+    
+    public void pushGripper(boolean pushOn){ 	
+    	pusherGripper.set(pushOn);
     }
     
     public void initDefaultCommand() {

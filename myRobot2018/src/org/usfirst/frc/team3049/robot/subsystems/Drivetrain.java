@@ -83,6 +83,12 @@ public class Drivetrain extends Subsystem {
 //		drive(joy.getRawAxis(OI.axisLY), joy.getRawAxis(OI.axisRX));
 	}
 	
+public double auxdrive(Joystick aux) { // the method used to drive with a joystick
+		
+		double y = aux.getRawAxis(OI.axisAuxY);
+		return y;
+	}
+	
 	public void stop() // To keep motor safety happy
 	{
 		m_robotDrive.stopMotor();

@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class ManualElevatorControl extends Command { // only run as a WhileHeld button type, otherwise it will run forever
 	private static Elevator m_elevator;
 	private static double m_speedUp = 0.4; //Adjust this to change rate of movement
-	private static double m_speedDown = 0.01;
+	private double m_axis = 0;
 	private boolean m_direction;
 	private static Encoder m_encoderE;
 	
@@ -23,11 +23,12 @@ public class ManualElevatorControl extends Command { // only run as a WhileHeld 
 	 * Command that Manually Controls the elevator
 	 * @param direction Boolean, If true elevator goes up. If false elevator goes down
 	 */
-    public ManualElevatorControl(boolean direction) {
+    public ManualElevatorControl(double Axis) {
        requires(Robot.elevator);
        m_elevator = Robot.elevator;
        m_encoderE = Elevator.m_encoderElevator;
-       m_direction = direction;
+       m_axis = Axis;
+       
     }
 
     // Called just before this Command runs the first time
@@ -36,11 +37,14 @@ public class ManualElevatorControl extends Command { // only run as a WhileHeld 
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (m_direction == true){
+    	if(m_axis < -0.5){
     		m_elevator.raise(m_speedUp);
-    	}else if (m_direction == false){
-    		m_elevator.lower(m_speedDown);
-    	}
+       }else if(m_axis > 0.5){
+    	   m_elevator.lower();
+       }
+    		
+    		
+    	
     	SmartDashboard.putNumber("Elevator Encoder", m_encoderE.get());
 
     }

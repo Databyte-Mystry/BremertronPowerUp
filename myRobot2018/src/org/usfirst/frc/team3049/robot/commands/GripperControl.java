@@ -3,6 +3,7 @@ package org.usfirst.frc.team3049.robot.commands;
 import org.usfirst.frc.team3049.robot.Robot;
 import org.usfirst.frc.team3049.robot.subsystems.Gripper;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -38,6 +39,13 @@ public class GripperControl extends Command {
          	m_pneumatics.release();
          	System.out.println("Release!");
          	m_finished = true;
+         } else if (m_input == 3){
+        	 m_pneumatics.pushGripper(true);
+        	 Timer.delay(0.1);
+        	 m_pneumatics.release();
+        	 Timer.delay(0.25);
+        	 m_pneumatics.pushGripper(false);
+        	 m_finished = true;
          }
     	 
     }
