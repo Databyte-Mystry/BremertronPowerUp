@@ -14,8 +14,14 @@ public class RightPos2 extends CommandGroup {
 	 */
     public RightPos2() {
     	
-    	//addSequential(new EncoderDriveStraight(3.0));
-    	addSequential(new GyroDriveStraight(5.0, 0.5)); // time, speed
+    	addSequential(new GripperControl(1));
+    	addSequential(new SetElevatorHeight(1));
+    	addSequential(new GyroDriveStraight(1.0, 0.5)); //placeholder
+    	addSequential(new GyroTurnRight(90));
+    	addSequential(new GyroDriveStraight(1.7, 0.5)); //placeholder
+    	addSequential(new GyroTurnRight(90));
+    	addSequential(new GyroDriveStraight(0.5, 0.5)); //placeholder
+    	addSequential(new GripperControl(3));
 //    	addSequential(new GyroTurnLeft(90));
     	//addSeque	2ntial(new GyroDriveStraight(10.0, 0));
 
