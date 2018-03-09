@@ -20,7 +20,7 @@ public class LeftPos3 extends CommandGroup {
     	addSequential(new GyroTurnLeft(90));
     	addSequential(new GyroDriveStraight(3.5, 0.5)); //placeholder Distance Needed: 107.81"
     	addSequential(new GyroTurnLeft(90));
-    	addSequential(new GyroDriveStraight(0.5, 0.5));
+    	addSequential(new GyroDriveStraight(0.5, 0.5)); //placeholder Distance Needed: 6"
     	addSequential(new GripperControl(3));
 
 //    	addSequential(new GyroTurnRight(90));
