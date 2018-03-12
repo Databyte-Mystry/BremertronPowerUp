@@ -13,12 +13,13 @@ public class RightPos1 extends CommandGroup {
     public RightPos1() {
     	
     	addSequential(new GripperControl(1));
-    	addSequential(new SetElevatorHeight(1));
+    	addSequential(new SetElevatorHeight(2));
     	addSequential(new GyroDriveStraight(4.0, 0.5)); //placeholder Distance Needed: 220.25"
     	addSequential(new GyroTurnRight(90));
     	addSequential(new GyroDriveStraight(3.5, 0.5)); //placeholder Distance Needed: 107.81"
     	addSequential(new GyroTurnRight(90));
     	addSequential(new GyroDriveStraight(0.5, 0.5)); //placeholder Distance Needed: 6"
+    	addSequential(new SetElevatorHeight(1));
     	addSequential(new GripperControl(3));
 //    	addSequential(new GyroDriveStraight(10.0, 0));
 //    	addSequential(new GyroTurnLeft(90));

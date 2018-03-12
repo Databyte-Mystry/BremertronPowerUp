@@ -16,10 +16,11 @@ public class LeftPos1 extends CommandGroup {
     public LeftPos1() {
     	
     	addSequential(new GripperControl(1));
-    	addSequential(new SetElevatorHeight(1));
+    	addSequential(new SetElevatorHeight(2));
     	addSequential(new GyroDriveStraight(3.0, 0.5)); //placeholder Distance Needed: 153"
     	addSequential(new GyroTurnRight(90));
     	addSequential(new GyroDriveStraight(1.0, 0.5)); //placeholder Distance Needed: 15"
+    	addSequential(new SetElevatorHeight(1));
     	addSequential(new GripperControl(3));
 
 //    	addSequential(new GyroTurnRight(90));
