@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ElevatorBrake extends Command {
 	private static Elevator m_elevator;
-	private static Encoder m_encoderE = Elevator.m_encoderElevator;
+//	private static Encoder m_encoderE = Elevator.m_encoderElevator;
 	private double m_speed;
 	
     public ElevatorBrake() {
@@ -21,9 +21,9 @@ public class ElevatorBrake extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	m_encoderE.setDistancePerPulse(0.25); // distance is in degrees per pulse
-     	m_encoderE.setMaxPeriod(0.1);
-    	m_speed = Elevator.m_elevatorMotors.get();
+//    	m_encoderE.setDistancePerPulse(0.25); // distance is in degrees per pulse
+//     	m_encoderE.setMaxPeriod(0.1);
+    	m_speed = Elevator.m_elevatorMotor.get();
     	
     }
 

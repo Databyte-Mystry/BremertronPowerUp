@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3049.robot.commands;
 
+import org.usfirst.frc.team3049.robot.OI;
 import org.usfirst.frc.team3049.robot.Robot;
 import org.usfirst.frc.team3049.robot.subsystems.Elevator;
 import org.usfirst.frc.team3049.robot.subsystems.Gripper;
@@ -26,7 +27,7 @@ public class ManualElevatorControl extends Command { // only run as a WhileHeld 
     public ManualElevatorControl(double Axis) {
        requires(Robot.elevator);
        m_elevator = Robot.elevator;
-       m_encoderE = Elevator.m_encoderElevator;
+//       m_encoderE = Elevator.m_encoderElevator;
        m_axis = Axis;
        
     }
@@ -37,6 +38,8 @@ public class ManualElevatorControl extends Command { // only run as a WhileHeld 
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	SmartDashboard.putNumber("Lift Axis:", OI.aux.getRawAxis(OI.axisAuxY));
+    	m_axis = OI.aux.getRawAxis(OI.axisAuxY);
     	if(m_axis < -0.5){
     		m_elevator.raise(m_speedUp);
        }else if(m_axis > 0.5){
@@ -45,7 +48,7 @@ public class ManualElevatorControl extends Command { // only run as a WhileHeld 
     		
     		
     	
-    	SmartDashboard.putNumber("Elevator Encoder", m_encoderE.get());
+//    	SmartDashboard.putNumber("Elevator Encoder", m_encoderE.get());
 
     }
 
@@ -56,14 +59,14 @@ public class ManualElevatorControl extends Command { // only run as a WhileHeld 
 
     // Called once after isFinished returns true
     protected void end() {
-    	new ElevatorBrake();
-//    	m_elevator.lowerToBottom();
+//    	new ElevatorBrake();
+    	m_elevator.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	new ElevatorBrake();
-//    	m_elevator.lowerToBottom();
+//    	new ElevatorBrake();
+    
     }
 }

@@ -9,7 +9,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.buttons.Button;
 
 import org.usfirst.frc.team3049.robot.Robot;
-import org.usfirst.frc.team3049.robot.commands.ActivateClimber;
+import org.usfirst.frc.team3049.robot.commands.DriveTest;
+import org.usfirst.frc.team3049.robot.commands.ElevatorStop;
+//import org.usfirst.frc.team3049.robot.commands.ActivateClimber;
 import org.usfirst.frc.team3049.robot.commands.GiveToExchange;
 import org.usfirst.frc.team3049.robot.commands.GripperControl;
 import org.usfirst.frc.team3049.robot.commands.LowerElevator;
@@ -21,7 +23,7 @@ import org.usfirst.frc.team3049.robot.commands.SetElevatorHeight;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	public static Joystick joy = new Joystick(0); // Drive Joystick
+	public static Joystick joy = new Joystick(1); // Drive Joystick
 	
 	//Drive Stick Button Mapping
 	JoystickButton button1 = new JoystickButton(joy, 1);
@@ -39,20 +41,20 @@ public class OI {
 	public static int axisY = 1;
 	public static int axisZ = 2;
 	
-public static Joystick aux = new Joystick(1); // Auxilary Joystick
+public static Joystick aux = new Joystick(0); // Auxilary Joystick
 	
 	//Auxilary Stick Button Mapping
-	JoystickButton buttonAux1 = new JoystickButton(joy, 1);
-	JoystickButton buttonAux2 = new JoystickButton(joy, 2);
-	JoystickButton buttonAux3 = new JoystickButton(joy, 3);
-	JoystickButton buttonAux4 = new JoystickButton(joy, 4);
-	JoystickButton buttonAux5 = new JoystickButton(joy, 5);
-	JoystickButton buttonAux6 = new JoystickButton(joy, 6);
-	JoystickButton buttonAux7 = new JoystickButton(joy, 7);
-	JoystickButton buttonAux8 = new JoystickButton(joy, 8);
-	JoystickButton buttonAux9 = new JoystickButton(joy, 9);
-	JoystickButton buttonAux10 = new JoystickButton(joy, 10);
-	JoystickButton buttonAux11 = new JoystickButton(joy, 11);
+	JoystickButton buttonAux1 = new JoystickButton(aux, 1);
+	JoystickButton buttonAux2 = new JoystickButton(aux, 2);
+	JoystickButton buttonAux3 = new JoystickButton(aux, 3);
+	JoystickButton buttonAux4 = new JoystickButton(aux, 4);
+	JoystickButton buttonAux5 = new JoystickButton(aux, 5);
+	JoystickButton buttonAux6 = new JoystickButton(aux, 6);
+	JoystickButton buttonAux7 = new JoystickButton(aux, 7);
+	JoystickButton buttonAux8 = new JoystickButton(aux, 8);
+	JoystickButton buttonAux9 = new JoystickButton(aux, 9);
+	JoystickButton buttonAux10 = new JoystickButton(aux, 10);
+	JoystickButton buttonAux11 = new JoystickButton(aux, 11);
 	public static int axisAuxX = 0;
 	public static int axisAuxY = 1;
 	public static int axisAuxZ = 2;
@@ -132,13 +134,22 @@ public static Joystick aux = new Joystick(1); // Auxilary Joystick
 //		buttonLiftDown.whileHeld(new ManualElevatorControl(false)); // false declares that the elevator will lower
 //		//buttonGrip.whileHeld(new Print("Thank God The New Controller Works"));
 		
+		//Drive Joystick Command Assignment
+		button6.whileHeld(new DriveTest(0.5));
+		button8.whileHeld(new DriveTest(-0.5));
+		
 		//Auxilary Joystick Command Assignment
 		buttonAux1.whenPressed(new GripperControl(1)); // 1 for grip
 		buttonAux3.whenPressed(new GripperControl(3)); // 3 for activate gripper piston, then release
 		buttonAux4.whenPressed(new GripperControl(2)); // 2 for release
 		buttonAux5.whenPressed(new GripperControl(2)); // 2 for release
 		buttonAux2.whenPressed(new GiveToExchange());
-		
+		buttonAux6.whenPressed(new SetElevatorHeight(0));
+		buttonAux7.whenPressed(new SetElevatorHeight(0));
+		buttonAux8.whenPressed(new SetElevatorHeight(0));
+//		buttonAux6.whileHeld(new ManualElevatorControl(-0.6));
+//		buttonAux7.whileHeld(new ManualElevatorControl(0.6));
+		buttonAux11.toggleWhenPressed(new ElevatorStop());
 	}
 
 	public Joystick getJoystick() {

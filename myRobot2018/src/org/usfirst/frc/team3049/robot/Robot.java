@@ -26,7 +26,7 @@ import org.usfirst.frc.team3049.robot.commands.RightPos2;
 import org.usfirst.frc.team3049.robot.commands.RightPos3;
 //import org.usfirst.frc.team3049.robot.commands.AutoTestCase;
 import org.usfirst.frc.team3049.robot.commands.GyroTurnRight;
-import org.usfirst.frc.team3049.robot.subsystems.Climber;
+//import org.usfirst.frc.team3049.robot.subsystems.Climber;
 import org.usfirst.frc.team3049.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3049.robot.subsystems.Elevator;
 import org.usfirst.frc.team3049.robot.subsystems.Gripper;
@@ -45,7 +45,7 @@ public class Robot extends IterativeRobot {
 	public static ADXRS450_Gyro gyro;
 	public static Elevator elevator;
 	public static Gripper pneumatics;
-	public static Climber climber;
+//	public static Climber climber;
 	public static LidarSubsystem lidar;
 	public static DriverStation driverstation;
 	
@@ -70,7 +70,7 @@ public class Robot extends IterativeRobot {
 		gyro = new ADXRS450_Gyro();
 		elevator = new Elevator();
 		pneumatics = new Gripper();
-		climber = new Climber();
+//		climber = new Climber();
 		lidar = new LidarSubsystem();
 		oi = new OI();
 		position = 2;
@@ -112,33 +112,33 @@ public class Robot extends IterativeRobot {
 		gyro.reset();
 		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
-		if(gameData.charAt(0) == 'L')
-		{
-			//Put left auto code here
-			if(position == 1){
-				autonomousCommand = new LeftPos1();
-				System.out.println("LeftPos1");
-			}else if(position == 2){
-				autonomousCommand = new LeftPos2();
-				System.out.println("LeftPos2");
-			}else{
-				autonomousCommand = new LeftPos3();
-				System.out.println("LeftPos3");
-			}
-		} else {
-			//Put right auto code here
-			if(position == 1){
-				autonomousCommand = new RightPos1();
-				System.out.println("RightPos1");
-			}else if(position == 2){
-				autonomousCommand = new RightPos2();
-				System.out.println("RightPos2");
-			}else{
-				autonomousCommand = new RightPos3();
-				System.out.println("RightPos3");
-			}
-		}
-//		autonomousCommand = new GyroDriveStraight(5, 0.5);
+//		if(gameData.charAt(0) == 'L')
+//		{
+//			//Put left auto code here
+//			if(position == 1){
+//				autonomousCommand = new LeftPos1();
+//				System.out.println("LeftPos1");
+//			}else if(position == 2){
+//				autonomousCommand = new LeftPos2();
+//				System.out.println("LeftPos2");
+//			}else{
+//				autonomousCommand = new LeftPos3();
+//				System.out.println("LeftPos3");
+//			}
+//		} else {
+//			//Put right auto code here
+//			if(position == 1){
+//				autonomousCommand = new RightPos1();
+//				System.out.println("RightPos1");
+//			}else if(position == 2){
+//				autonomousCommand = new RightPos2();
+//				System.out.println("RightPos2");
+//			}else{
+//				autonomousCommand = new RightPos3();
+//				System.out.println("RightPos3");
+//			}
+//		}
+		autonomousCommand = new GyroDriveStraight(5, 0.5);
 		if (autonomousCommand != null)
 			autonomousCommand.start();
 	}

@@ -22,13 +22,12 @@ public class Elevator extends Subsystem {
 	public DigitalInput switchHGround;
 	public DigitalInput switchHTop; 
 	
-	public static Encoder m_encoderElevator = new Encoder(RobotMap.EncoderE_ChanA, RobotMap.EncoderE_ChanB, true, CounterBase.EncodingType.k4X);
+//	public static Encoder m_encoderElevator = new Encoder(RobotMap.EncoderE_ChanA, RobotMap.EncoderE_ChanB, true, CounterBase.EncodingType.k4X);
 	
-	public Solenoid liftBrake = new Solenoid(RobotMap.Brake_Solenoid);//default should be braked
+//	public Solenoid liftBrake = new Solenoid(RobotMap.Brake_Solenoid);//default should be braked
 	
-	private static Talon m_elevatorMotor1 = new Talon(RobotMap.Elevator_Motor1);
-	private static Spark m_elevatorMotor2 = new Spark(RobotMap.Elevator_Motor2);
-	public static SpeedControllerGroup m_elevatorMotors = new SpeedControllerGroup(m_elevatorMotor1,m_elevatorMotor2);
+	public static Talon m_elevatorMotor = new Talon(RobotMap.Elevator_Motor);
+//	public static SpeedControllerGroup m_elevatorMotors = new SpeedControllerGroup(m_elevatorMotor1,m_elevatorMotor2);
 	
 	public Elevator (){
 		try{
@@ -40,18 +39,18 @@ public class Elevator extends Subsystem {
 	}
     public void raise(double speed){
 //    	liftBrake.set(true);
-    	m_elevatorMotors.set(speed);
+    	m_elevatorMotor.set(speed);
     }
     
     public void lower(){
 //    	liftBrake.set(true);
-    		m_elevatorMotors.set(m_elevatorMotors.get() - 0.05);
+    		m_elevatorMotor.set(m_elevatorMotor.get() - 0.05);
     		Timer.delay(0.5);
     	
     }
     public void lowerToBottom(){
-    	while(m_elevatorMotors.get() > 0 ){
-    		m_elevatorMotors.set(m_elevatorMotors.get() - 0.05);
+    	while(m_elevatorMotor.get() > 0 ){
+    		m_elevatorMotor.set(m_elevatorMotor.get() - 0.05);
     		Timer.delay(0.5);
     	}
     }
@@ -68,7 +67,7 @@ public class Elevator extends Subsystem {
 //    }
     
     public void stop(){
-    	m_elevatorMotors.stopMotor();
+    	m_elevatorMotor.stopMotor();
 //    	Timer.delay(0.1);
 //    	liftBrake.set(false);
     }

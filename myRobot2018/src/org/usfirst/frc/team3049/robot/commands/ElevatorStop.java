@@ -8,12 +8,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class LowerElevator extends Command {
+public class ElevatorStop extends Command {
 	private static Elevator m_elevator;
 	private boolean m_finished = false;
-    public LowerElevator() {
-       requires(Robot.elevator);
-       m_elevator = Robot.elevator;
+    public ElevatorStop() {
+        requires(Robot.elevator);
+        m_elevator = Robot.elevator;
     }
 
     // Called just before this Command runs the first time
@@ -22,30 +22,21 @@ public class LowerElevator extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	m_elevator.lower();
+    	m_elevator.stop();
+    	m_finished = true;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-       if(Elevator.m_elevatorMotor.get() <= 0 || !m_elevator.switchHGround.get()){
-    	   System.out.println("");
-    	   return true;
-       }else{
-    	   return false;
-       }
+        return m_finished;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	System.out.println("Ended");
-    	m_elevator.stop();
-    	
-    	
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	m_elevator.stop();
     }
 }

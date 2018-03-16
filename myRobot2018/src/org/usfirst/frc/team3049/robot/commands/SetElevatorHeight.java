@@ -51,11 +51,11 @@ public class SetElevatorHeight extends Command {
     	SmartDashboard.putBoolean("m_finished", m_finished);
     	System.out.println("m_setting " + m_setting);
     	if(m_setting == 0){
-    		m_elevator.raise(m_speedUp);
-    	}else if(m_setting == 1){
     		m_elevator.lower();
+    	}else if(m_setting == 1){
+    		m_elevator.raise(m_speedUp);
     	}else if(m_setting == 2){
-    		Elevator.m_elevatorMotors.set(0.02);
+    		Elevator.m_elevatorMotor.set(0.02);
     		m_finished = true;
     	}else{
     		System.out.println("Set Elevator Height : Invalid Setting");

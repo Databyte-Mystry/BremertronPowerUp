@@ -1,19 +1,20 @@
 package org.usfirst.frc.team3049.robot.commands;
 
 import org.usfirst.frc.team3049.robot.Robot;
-import org.usfirst.frc.team3049.robot.subsystems.Elevator;
+import org.usfirst.frc.team3049.robot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class LowerElevator extends Command {
-	private static Elevator m_elevator;
-	private boolean m_finished = false;
-    public LowerElevator() {
-       requires(Robot.elevator);
-       m_elevator = Robot.elevator;
+public class DriveTest extends Command {
+	private static Drivetrain m_drivetrain;
+	private double m_speed;
+    public DriveTest(double speed) {
+    	requires(Robot.driveTrain);
+    	m_drivetrain = Robot.driveTrain;
+    	m_speed = speed;
     }
 
     // Called just before this Command runs the first time
@@ -22,30 +23,22 @@ public class LowerElevator extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	m_elevator.lower();
+    	m_drivetrain.drive(-m_speed, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-       if(Elevator.m_elevatorMotor.get() <= 0 || !m_elevator.switchHGround.get()){
-    	   System.out.println("");
-    	   return true;
-       }else{
-    	   return false;
-       }
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	System.out.println("Ended");
-    	m_elevator.stop();
-    	
-    	
+    	m_drivetrain.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	m_elevator.stop();
+    	m_drivetrain.stop();
     }
 }
