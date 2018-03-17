@@ -144,12 +144,12 @@ public static Joystick aux = new Joystick(0); // Auxilary Joystick
 		buttonAux4.whenPressed(new GripperControl(2)); // 2 for release
 		buttonAux5.whenPressed(new GripperControl(2)); // 2 for release
 		buttonAux2.whenPressed(new GiveToExchange());
-		buttonAux6.whenPressed(new SetElevatorHeight(0));
-		buttonAux7.whenPressed(new SetElevatorHeight(0));
+		buttonAux6.whenPressed(new SetElevatorHeight(1));
+		buttonAux7.whenPressed(new SetElevatorHeight(2));
 		buttonAux8.whenPressed(new SetElevatorHeight(0));
 //		buttonAux6.whileHeld(new ManualElevatorControl(-0.6));
 //		buttonAux7.whileHeld(new ManualElevatorControl(0.6));
-		buttonAux11.toggleWhenPressed(new ElevatorStop());
+		buttonAux11.whenPressed(new ElevatorStop());
 	}
 
 	public Joystick getJoystick() {

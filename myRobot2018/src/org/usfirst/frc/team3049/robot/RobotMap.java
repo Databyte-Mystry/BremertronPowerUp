@@ -27,8 +27,8 @@ public class RobotMap {
 
 		
 	//Digital Inputs
-	public static int Limit_Switch_Ground = 0;
-	public static int Limit_Switch_Top = 1;
+	public static int Limit_Switch_Ground = 1;
+	public static int Limit_Switch_Top = 0;
 	
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

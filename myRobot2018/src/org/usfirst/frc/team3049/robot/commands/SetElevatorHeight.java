@@ -49,13 +49,14 @@ public class SetElevatorHeight extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() { 
     	SmartDashboard.putBoolean("m_finished", m_finished);
+    	SmartDashboard.putBoolean("m_target ", m_target.get());
     	System.out.println("m_setting " + m_setting);
     	if(m_setting == 0){
     		m_elevator.lower();
     	}else if(m_setting == 1){
     		m_elevator.raise(m_speedUp);
     	}else if(m_setting == 2){
-    		Elevator.m_elevatorMotor.set(0.02);
+    		Elevator.m_elevatorMotor.set(0.2);
     		m_finished = true;
     	}else{
     		System.out.println("Set Elevator Height : Invalid Setting");
@@ -66,23 +67,23 @@ public class SetElevatorHeight extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         if(m_target != null){
-        	m_finished = m_target.get();
+        	m_finished = !m_target.get();
         }
     	return m_finished;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	System.out.println("Starting Finish");
+    	System.out.println("Starting Finish " + m_setting);
     	new ElevatorBrake();
 //    	m_elevator.stop();
-    	System.out.println("Finished Ending");
+    	System.out.println("Finished Ending " + m_setting);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-//    	new ElevatorBrake(); 
+    	new ElevatorBrake();  
 //    	m_elevator.stop();
     	System.out.println("Interrupted");
     }

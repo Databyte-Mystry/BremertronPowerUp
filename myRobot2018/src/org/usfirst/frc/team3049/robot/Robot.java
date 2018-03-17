@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
 
 import org.usfirst.frc.team3049.robot.subsystems.LidarSubsystem;
+import org.usfirst.frc.team3049.robot.commands.AutoTest;
 import org.usfirst.frc.team3049.robot.commands.GripperControl;
 import org.usfirst.frc.team3049.robot.commands.GyroDriveStraight;
 import org.usfirst.frc.team3049.robot.commands.GyroTurnLeft;
@@ -24,6 +25,7 @@ import org.usfirst.frc.team3049.robot.commands.LeftPos3;
 import org.usfirst.frc.team3049.robot.commands.RightPos1;
 import org.usfirst.frc.team3049.robot.commands.RightPos2;
 import org.usfirst.frc.team3049.robot.commands.RightPos3;
+import org.usfirst.frc.team3049.robot.commands.SetElevatorHeight;
 //import org.usfirst.frc.team3049.robot.commands.AutoTestCase;
 import org.usfirst.frc.team3049.robot.commands.GyroTurnRight;
 //import org.usfirst.frc.team3049.robot.subsystems.Climber;
@@ -138,7 +140,7 @@ public class Robot extends IterativeRobot {
 //				System.out.println("RightPos3");
 //			}
 //		}
-		autonomousCommand = new GyroDriveStraight(5, 0.5);
+		autonomousCommand = new AutoTest();
 		if (autonomousCommand != null)
 			autonomousCommand.start();
 	}
@@ -207,6 +209,8 @@ public class Robot extends IterativeRobot {
 	private void log(){
 		SmartDashboard.putNumber("Position", position);//????
 		SmartDashboard.putNumber("Gyro Angle:", gyro.getAngle());// Displays Gyro Angle
+		SmartDashboard.putBoolean("Ground Switch", elevator.switchHGround.get());
+		SmartDashboard.putBoolean("Top Switch", elevator.switchHTop.get());
 //		SmartDashboard.putNumber("Distance", lidar.getDistance());// Displays distance in inches.
 	}
 
