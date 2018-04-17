@@ -30,7 +30,7 @@ public class Drivetrain extends Subsystem {
 	
 	private double dz = 0.08; //change this to adjust the deadzone on the joysticks
 	private double topTurnSpeed = 0.6; // change this to adjust top turning speed achievable by joystick drive also affects total sensitivity
-	private double sens = 0.5; // sensitivity
+	private double sens; // sensitivity
 	
 	
 	public Drivetrain(){
@@ -77,6 +77,7 @@ public class Drivetrain extends Subsystem {
 		
 		double x = adjSens(-joy.getRawAxis(OI.axisY)); //
 		double r = deadzone(joy.getRawAxis(OI.axisX));
+//		System.out.println("Current Speed" + x);
 //		System.out.println(""+joy.getRawAxis(0)+""+joy.getRawAxis(1)+""+joy.getRawAxis(2)+""+joy.getRawAxis(3)+joy.getRawAxis(4));
 //		System.out.println(" OI.axisLY:"+joy.getRawAxis(OI.axisLY)+" OI.axisRX:"+joy.getRawAxis(OI.axisRX));
 		drive(x,r);

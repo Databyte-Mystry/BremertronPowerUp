@@ -30,7 +30,7 @@ public class GyroTurnRight extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	m_drivetrain.drive(0, 0.35);
+    	m_drivetrain.drive(0, 0.45);
     	SmartDashboard.putNumber("Gyro Angle:", Robot.gyro.getAngle());
     }
 
@@ -44,10 +44,12 @@ public class GyroTurnRight extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	m_drivetrain.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	m_drivetrain.stop();
     }
 }

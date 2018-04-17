@@ -14,13 +14,13 @@ public class RightPos3 extends CommandGroup {
 	 * Auto Command going for the right switch in start Position 3 (Right Side)
 	 */
     public RightPos3() {
-    	
+    	addSequential(new ElevatorStop());
     	addSequential(new GripperControl(1));
-    	addSequential(new SetElevatorHeight(2));
-    	addSequential(new GyroDriveStraight(3.0, 0.5)); //placeholder 153"
-    	addSequential(new GyroTurnLeft(90));
-    	addSequential(new GyroDriveStraight(1.0, 0.5)); //placeholder 15"
+//    	addSequential(new SetElevatorHeight(2));
+    	addSequential(new GyroDriveStraight(171, 0.5)); //placeholder 153"
+    	addSequential(new GyroTurnLeft(70));
     	addSequential(new SetElevatorHeight(1));
+    	addSequential(new GyroDriveStraight(15, 0.5)); //placeholder 15"
     	addSequential(new GripperControl(3));
 //    	addSequential(new GyroDriveStraight(10.0, 0));
 

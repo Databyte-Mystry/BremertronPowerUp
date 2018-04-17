@@ -13,16 +13,16 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class GyroDriveStraight extends Command {
 	private static double m_speed;
-	private static double m_time;
+	private double m_time;
 	private double m_turnSpeed = -0.5; // Placeholder number, base turnspeed needs to be determined by testing
 	final double Kp = 0.03;
 	private static ADXRS450_Gyro m_gyro;
 	private static Drivetrain m_drivetrain;
 	
-    public GyroDriveStraight(double time, double speed) {
+    public GyroDriveStraight(double distance, double speed) {
        requires(Robot.driveTrain);
        m_drivetrain = Robot.driveTrain;
-       m_time = time;
+       m_time = (distance-4.24)/31.8;
        m_speed = speed;
        m_gyro = Robot.gyro;
        

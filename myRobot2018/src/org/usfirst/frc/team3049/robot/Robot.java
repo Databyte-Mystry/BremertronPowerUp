@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 
 import org.usfirst.frc.team3049.robot.subsystems.LidarSubsystem;
 import org.usfirst.frc.team3049.robot.commands.AutoTest;
+import org.usfirst.frc.team3049.robot.commands.ElevatorStop;
 import org.usfirst.frc.team3049.robot.commands.GripperControl;
 import org.usfirst.frc.team3049.robot.commands.GyroDriveStraight;
 import org.usfirst.frc.team3049.robot.commands.GyroTurnLeft;
@@ -75,7 +76,7 @@ public class Robot extends IterativeRobot {
 //		climber = new Climber();
 		lidar = new LidarSubsystem();
 		oi = new OI();
-		position = 2;
+		position = 1;
 		//position =  driverstation.getLocation(); 
 //		autonomousCommand = new AutoTestCase();
 		gyro.calibrate();
@@ -111,36 +112,41 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {         
+		Command stop = new ElevatorStop();
+		if (stop != null){
+			stop.start();
+	}
 		gyro.reset();
 		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
-//		if(gameData.charAt(0) == 'L')
-//		{
-//			//Put left auto code here
-//			if(position == 1){
-//				autonomousCommand = new LeftPos1();
-//				System.out.println("LeftPos1");
-//			}else if(position == 2){
-//				autonomousCommand = new LeftPos2();
-//				System.out.println("LeftPos2");
-//			}else{
-//				autonomousCommand = new LeftPos3();
-//				System.out.println("LeftPos3");
-//			}
-//		} else {
-//			//Put right auto code here
-//			if(position == 1){
-//				autonomousCommand = new RightPos1();
-//				System.out.println("RightPos1");
-//			}else if(position == 2){
-//				autonomousCommand = new RightPos2();
-//				System.out.println("RightPos2");
-//			}else{
-//				autonomousCommand = new RightPos3();
-//				System.out.println("RightPos3");
-//			}
-//		}
-		autonomousCommand = new AutoTest();
+		if(gameData.charAt(0) == 'L')
+		{
+			//Put left auto code here
+			if(position == 1){
+				autonomousCommand = new LeftPos1();
+				System.out.println("LeftPos1");
+			}else if(position == 2){
+				autonomousCommand = new LeftPos2();
+				System.out.println("LeftPos2");
+			}else{
+				autonomousCommand = new LeftPos3();
+				System.out.println("LeftPos3");
+			}
+		} else {
+			//Put right auto code here
+			if(position == 1){
+				autonomousCommand = new RightPos1();
+				System.out.println("RightPos1");
+			}else if(position == 2){
+				autonomousCommand = new RightPos2();
+				System.out.println("RightPos2");
+			}else{
+				autonomousCommand = new RightPos3();
+				System.out.println("RightPos3");
+			}
+		}
+//		autonomousCommand = new AutoTest();
+//		autonomousCommand = new GyroDriveStraight(80, 0.5);
 		if (autonomousCommand != null)
 			autonomousCommand.start();
 	}

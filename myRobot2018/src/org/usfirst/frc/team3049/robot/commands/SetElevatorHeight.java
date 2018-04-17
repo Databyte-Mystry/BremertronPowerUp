@@ -75,8 +75,10 @@ public class SetElevatorHeight extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	System.out.println("Starting Finish " + m_setting);
-    	new ElevatorBrake();
-//    	m_elevator.stop();
+//    	Command brake = new ElevatorBrake();
+//    	if(brake != null){
+//    		brake.start();
+//    	}
     	System.out.println("Finished Ending " + m_setting);
     }
 
